@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labour market part 2 · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Economics · 7136 · Paper 1 Microeconomics · Sun 19 Apr</p>
+  <h1>Labour Market — Part 2</h1>
+  <p class="page-subtitle">Monopsony · Trade unions · National Minimum Wage · Discrimination</p>
+
+  <div class="card-yellow">
+    <strong>3-hour session structure</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>5 min</strong> — Warm-up: redo whatever you got wrong on yesterday's retrieval test. Just the weak ones.</li>
+      <li><strong>45 min</strong> — Monopsony (3.1.6.4). This is the hardest diagram in the whole micro paper. Read, then draw it five times.</li>
+      <li><strong>45 min</strong> — Trade unions (3.1.6.5). Two diagrams: union in PC market, union in monopsony market. Counter-intuitive result to memorise.</li>
+      <li><strong>30 min</strong> — NMW (3.1.6.6). Classical diagram + evaluation points.</li>
+      <li><strong>30 min</strong> — Discrimination (3.1.6.7). Wage discrimination diagram + real-world examples.</li>
+      <li><strong>25 min</strong> — 15-question retrieval test at the bottom. Mark honestly.</li>
+    </ol>
+    <p style="margin-top: 10px; font-size: 12.5px;"><strong>This is a long pack.</strong> Take a 5-minute break after each section. If you've hit the wall after monopsony + unions, split the remainder across tomorrow morning.</p>
+  </div>
+
+  <h2 class="underlined">Section 3.1.6.4 — Monopsony</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    How various factors such as monopsony power, trade unions and imperfect information contribute to imperfections in a labour market. How, in a monopsony labour market, the employer can use market power to reduce both the relative wage rate and the level of employment below those that would exist in a perfectly competitive labour market. <strong>The use of relevant diagrams is expected.</strong>
+  </div>
+
+  <h3>What monopsony means</h3>
+
+  <p>A <span class="key-term">monopsony</span> is a market with a single (or dominant) buyer of labour. It's the labour-market mirror of a monopoly, but on the demand side instead of the supply side. Think: NHS is the dominant buyer of UK nurses. Amazon in some warehouse-heavy towns. A mining company in a remote town where there's no other employer. Big Four supermarkets buying from dairy farmers.</p>
+
+  <p>Because the monopsonist is effectively the whole market for that type of labour, if they want to hire more workers they have to raise the wage — not just for the new hire, but <em>for everyone already employed</em>. This single fact is what drives the entire diagram. If you understand why, you've understood monopsony.</p>
+
+  <h3>Why MCL lies above S (the killer idea)</h3>
+
+  <div class="card">
+    <p><strong>Scenario.</strong> Five workers employed at £10/hour. Total wage bill = £50. To hire a 6th worker, the monopsonist has to offer £11/hour. But they can't pay the 6th worker £11 and the existing five £10 — they all get £11.</p>
+    <p style="margin-top: 8px;">New total wage bill = 6 × £11 = £66. Change in total cost from hiring the 6th worker = £66 − £50 = <strong>£16</strong>.</p>
+    <p style="margin-top: 8px;">The 6th worker's wage is £11, but their <strong>marginal cost to the firm is £16</strong>. That £5 gap comes from paying the existing five workers an extra £1 each.</p>
+  </div>
+
+  <p>This gives us the defining feature of the monopsony labour market: the Marginal Cost of Labour (MCL) curve lies <strong>above</strong> the supply curve (S = ACL) and is steeper. Every extra worker costs more to hire than the wage you pay them, because you've had to bid up the wage for everyone.</p>
+
+  <h3>The monopsony diagram</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mon-title">
+      <title id="mon-title">Monopsony labour market diagram</title>
+
+      <line x1="60" y1="30" x2="60" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="320" x2="460" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="35" class="svg-axis-label">Wage</text>
+      <text x="335" y="355" class="svg-axis-label">Quantity of labour</text>
+
+      <line x1="90" y1="70" x2="450" y2="310" stroke="#b8410f" stroke-width="2.5"/>
+      <text x="455" y="315" class="svg-curve-label" style="fill: #b8410f;">MRP = D</text>
+
+      <line x1="90" y1="300" x2="440" y2="90" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="445" y="90" class="svg-curve-label">S = ACL</text>
+
+      <line x1="90" y1="305" x2="320" y2="40" stroke="#6b2e8c" stroke-width="2.5"/>
+      <text x="260" y="45" class="svg-curve-label" style="fill: #6b2e8c;">MCL</text>
+
+      <circle cx="219" cy="156" r="4" fill="#1a1a1a"/>
+      <text x="223" y="150" class="svg-label" style="font-weight: 600;">A</text>
+
+      <line x1="219" y1="156" x2="219" y2="320" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="210" y="338" class="svg-label" style="font-weight: 600;">Q_m</text>
+
+      <circle cx="219" cy="223" r="4" fill="#1a1a1a"/>
+      <text x="223" y="220" class="svg-label" style="font-weight: 600;">B</text>
+
+      <line x1="60" y1="223" x2="219" y2="223" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="228" class="svg-label" style="font-weight: 600;">W_m</text>
+
+      <line x1="60" y1="156" x2="219" y2="156" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="161" class="svg-label" style="font-weight: 600; font-size: 10px;">MRP at Q_m</text>
+
+      <circle cx="272" cy="191" r="4" fill="#1a1a1a"/>
+      <text x="277" y="195" class="svg-label" style="font-weight: 600;">C</text>
+
+      <line x1="272" y1="191" x2="272" y2="320" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="263" y="338" class="svg-label" style="font-weight: 600;">Q_pc</text>
+
+      <line x1="60" y1="191" x2="272" y2="191" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="196" class="svg-label" style="font-weight: 600;">W_pc</text>
+
+      <line x1="245" y1="156" x2="245" y2="223" stroke="#8b1a1a" stroke-width="1.5"/>
+      <line x1="242" y1="156" x2="248" y2="156" stroke="#8b1a1a" stroke-width="1.5"/>
+      <line x1="242" y1="223" x2="248" y2="223" stroke="#8b1a1a" stroke-width="1.5"/>
+      <text x="252" y="195" class="svg-label" style="font-size: 11px; fill: #8b1a1a; font-weight: 600;">exploitation</text>
+
+    </svg>
+    <p class="diagram-caption">Monopsony equilibrium at point A (MCL = MRP). The firm reads wage down to point B on the supply curve. Employment Q_m and wage W_m both sit below the competitive levels Q_pc and W_pc.</p>
+  </div>
+
+  <h3>Drawing the diagram step by step</h3>
+
+  <p>When you draw this in the exam, follow this exact order. It's the only way to avoid getting confused halfway through.</p>
+
+  <div class="card">
+    <ol>
+      <li><strong>Axes.</strong> Vertical: Wage. Horizontal: Quantity of labour.</li>
+      <li><strong>Draw MRP</strong> (labour demand), downward sloping. Label it <strong>MRP = D</strong>.</li>
+      <li><strong>Draw S (supply of labour)</strong>, upward sloping. Label it <strong>S = ACL</strong>.</li>
+      <li><strong>Draw MCL above S</strong>, steeper, starting from the same origin but pulling away upward. Label it <strong>MCL</strong>. This is the step most students forget.</li>
+      <li><strong>Find point A</strong> where MCL = MRP. This is the profit-maximising employment condition for the monopsonist.</li>
+      <li><strong>Drop vertically to the x-axis</strong> to find <strong>Q_m</strong> (monopsony employment).</li>
+      <li><strong>From Q_m, go UP to the supply curve</strong> (not to MCL) to find point B, and read across to find <strong>W_m</strong> (the wage the firm actually pays).</li>
+      <li><strong>Mark the PC equilibrium</strong> (point C) where S meets MRP. Drop to x-axis for <strong>Q_pc</strong>, read across for <strong>W_pc</strong>.</li>
+      <li><strong>Compare:</strong> Q_m &lt; Q_pc AND W_m &lt; W_pc. The monopsonist employs fewer people AND pays them less.</li>
+      <li><strong>Show exploitation.</strong> The gap between W_m and the MRP at Q_m (the vertical distance between points B and A) is sometimes called the <em>rate of monopsony exploitation</em> — workers are paid less than the value of their marginal product.</li>
+    </ol>
+  </div>
+
+  <div class="examiner">
+    <strong>Mark scheme language (June 2020 exam).</strong> Exactly what the examiners want to see: <em>"A monopsonistic labour market diagram is expected, showing employment of q2 workers at a wage of w2, below the perfectly competitive levels of employment and wage, and below the MRP of the workers who are employed."</em>
+    <p style="margin-top: 8px;">That's the magic sentence. Below competitive employment. Below competitive wage. Below MRP. Three "belows" — all three must appear in your written analysis.</p>
+  </div>
+
+  <h3>The two critical mistakes</h3>
+
+  <div class="two-col">
+    <div class="col-box">
+      <h4>Wrong 1 — MCL below S</h4>
+      <p>Some students draw MCL below the supply curve. This is backwards and reverses the entire analysis. Check yourself: to hire one more worker you must pay <em>everyone</em> more, so the cost of the extra worker is greater than their wage. MCL must lie <strong>above</strong> S.</p>
+    </div>
+    <div class="col-box">
+      <h4>Wrong 2 — Wage at MCL</h4>
+      <p>Some students find point A and read the wage off at that height. Wrong. The firm pays the lowest wage it can to get Q_m workers to turn up — which is read off the <strong>supply curve</strong>. Employment is set by MCL = MRP; wage is set by the supply curve.</p>
+    </div>
+  </div>
+
+  <h3>Evaluation of the monopsony model</h3>
+
+  <ul>
+    <li><strong>Workers are worse off</strong> under monopsony than under perfect competition: lower wages and fewer jobs.</li>
+    <li><strong>The firm earns abnormal profits</strong> at workers' expense. The gap between the MRP and the wage paid is producer surplus extracted from what would otherwise be worker surplus.</li>
+    <li><strong>Allocative inefficiency.</strong> Too few workers are hired. Society would gain from more employment up to Q_pc.</li>
+    <li><strong>Counteracting forces.</strong> Trade unions, minimum wages, and imperfect monopsony (workers having some outside options) all weaken the result. We'll see unions do something surprising in a monopsony.</li>
+    <li><strong>Real-world nuance.</strong> Pure monopsony is rare. But <em>monopsony power</em> is common — wherever one buyer dominates hiring, we see wage suppression. Examples: NHS and junior doctors, Amazon in warehouse-town labour markets, big supermarkets buying from farmers.</li>
+  </ul>
+
+  <h2 class="underlined">Section 3.1.6.5 — Trade Unions</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The various factors that affect the ability of trade unions to influence wages and levels of employment in different labour markets. How wages and employment are likely to be affected by the introduction of a trade union into a previously perfectly competitive labour market and into a monopsony labour market. <strong>The use of relevant diagrams is expected.</strong>
+  </div>
+
+  <h3>What a trade union does</h3>
+
+  <p>A trade union is a collective of workers who act together to negotiate with employers (<span class="key-term">collective bargaining</span>) over wages, hours, and conditions. By speaking with one voice, individual workers gain bargaining power they wouldn't have alone. Unions can use strike action, work-to-rule, litigation, and political lobbying to push wages up.</p>
+
+  <p>The key idea: a union acts like a <strong>monopoly supplier of labour</strong>. It restricts the supply of workers to a given market until the employer agrees to a higher wage.</p>
+
+  <h3>Factors that determine union power</h3>
+
+  <table>
+    <thead>
+      <tr><th>Factor</th><th>Union more powerful when...</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Density</strong></td>
+        <td>A high percentage of workers in the industry are union members — management can't easily route around them.</td>
+      </tr>
+      <tr>
+        <td><strong>Profitability of the industry</strong></td>
+        <td>Employer has more to give without going out of business.</td>
+      </tr>
+      <tr>
+        <td><strong>PED of final product</strong></td>
+        <td>Inelastic product demand — firm can pass wage rises on to consumers rather than cutting jobs.</td>
+      </tr>
+      <tr>
+        <td><strong>Ease of substitution</strong></td>
+        <td>Labour is hard to replace with capital → union stronger (e.g. teachers, nurses; harder to automate).</td>
+      </tr>
+      <tr>
+        <td><strong>Labour market conditions</strong></td>
+        <td>Tight labour market, low unemployment → firm can't easily find replacement workers.</td>
+      </tr>
+      <tr>
+        <td><strong>Public sympathy</strong></td>
+        <td>Affects political response (e.g. nurses strike vs rail strike — sympathy shapes whether govt intervenes).</td>
+      </tr>
+      <tr>
+        <td><strong>Legal framework</strong></td>
+        <td>UK Trade Union Act 2016 imposes minimum turnout thresholds for strike ballots; pre-1979 unions were much stronger.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Union entering a perfectly competitive labour market</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="union-pc-title">
+      <title id="union-pc-title">Union entering a perfectly competitive labour market</title>
+
+      <line x1="60" y1="30" x2="60" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="280" x2="460" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="35" class="svg-axis-label">Wage</text>
+      <text x="335" y="310" class="svg-axis-label">Quantity of labour</text>
+
+      <line x1="90" y1="70" x2="450" y2="270" stroke="#b8410f" stroke-width="2.5"/>
+      <text x="455" y="275" class="svg-curve-label" style="fill: #b8410f;">D = MRP</text>
+
+      <line x1="90" y1="260" x2="440" y2="80" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="445" y="80" class="svg-curve-label">S1</text>
+
+      <circle cx="268" cy="169" r="4" fill="#1a1a1a"/>
+
+      <line x1="268" y1="169" x2="268" y2="280" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="259" y="298" class="svg-label" style="font-weight: 600;">Q*</text>
+      <line x1="60" y1="169" x2="268" y2="169" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="35" y="174" class="svg-label" style="font-weight: 600;">W*</text>
+
+      <line x1="60" y1="110" x2="390" y2="110" stroke="#4a7c2a" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <text x="395" y="113" class="svg-curve-label" style="fill: #4a7c2a;">W_u (union)</text>
+
+      <circle cx="162" cy="110" r="4" fill="#1a1a1a"/>
+      <text x="150" y="100" class="svg-label" style="font-weight: 600;">Q_d</text>
+
+      <circle cx="382" cy="110" r="4" fill="#1a1a1a"/>
+      <text x="385" y="100" class="svg-label" style="font-weight: 600;">Q_s</text>
+
+      <line x1="162" y1="125" x2="382" y2="125" stroke="#8b1a1a" stroke-width="1.5"/>
+      <text x="240" y="140" class="svg-label" style="font-size: 11px; fill: #8b1a1a; font-weight: 600;">unemployment</text>
+
+    </svg>
+    <p class="diagram-caption">Union negotiates W_u above the competitive wage W*. At W_u, supply (Q_s) exceeds demand (Q_d). Employment falls from Q* to Q_d. The gap Q_s − Q_d is unemployment.</p>
+  </div>
+
+  <h3>Reading the PC + union diagram</h3>
+
+  <ul>
+    <li>Before the union: equilibrium at W*, Q*.</li>
+    <li>Union negotiates a wage floor W_u above W*. This becomes the new effective supply curve (horizontal at W_u up to Q_s, then rising along the old S).</li>
+    <li>At W_u, firms demand only Q_d workers — they've moved up their labour demand curve, cutting employment.</li>
+    <li>At W_u, Q_s workers want to work — more than Q_d. The difference (Q_s − Q_d) is <strong>involuntary unemployment</strong>.</li>
+    <li>Workers who keep their jobs are paid more. Workers who lose them are worse off. Net effect on workers as a group is ambiguous — depends on how much employment falls vs how much wages rise.</li>
+  </ul>
+
+  <p><strong>The classic result:</strong> when a union enters a previously competitive labour market, it raises wages at the cost of employment.</p>
+
+  <h3>Union entering a monopsony labour market</h3>
+
+  <p>Here's the surprising and counter-intuitive result that examiners love. When a union enters a monopsonistic labour market, it can <strong>raise both wages AND employment at the same time</strong>. Read that twice. A union makes workers better off on both counts.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="union-mon-title">
+      <title id="union-mon-title">Union entering a monopsony labour market</title>
+
+      <line x1="60" y1="30" x2="60" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="320" x2="460" y2="320" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="35" class="svg-axis-label">Wage</text>
+      <text x="335" y="355" class="svg-axis-label">Quantity of labour</text>
+
+      <line x1="90" y1="70" x2="450" y2="310" stroke="#b8410f" stroke-width="2.5"/>
+      <text x="455" y="315" class="svg-curve-label" style="fill: #b8410f;">MRP</text>
+
+      <line x1="90" y1="300" x2="440" y2="90" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="445" y="90" class="svg-curve-label">S = ACL</text>
+
+      <line x1="90" y1="305" x2="320" y2="40" stroke="#6b2e8c" stroke-width="2.5"/>
+      <text x="260" y="45" class="svg-curve-label" style="fill: #6b2e8c;">MCL</text>
+
+      <circle cx="219" cy="156" r="4" fill="#1a1a1a"/>
+      <line x1="219" y1="156" x2="219" y2="320" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="207" y="338" class="svg-label" style="font-weight: 600;">Q_m</text>
+
+      <circle cx="219" cy="223" r="4" fill="#1a1a1a"/>
+      <line x1="60" y1="223" x2="219" y2="223" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="228" class="svg-label" style="font-weight: 600;">W_m</text>
+
+      <circle cx="272" cy="191" r="3" fill="#1a1a1a" opacity="0.4"/>
+      <line x1="272" y1="191" x2="272" y2="320" stroke="#6b6b66" stroke-width="1" stroke-dasharray="2,4" opacity="0.5"/>
+      <text x="263" y="338" class="svg-label" style="font-weight: 600; opacity: 0.5;">Q_pc</text>
+      <line x1="60" y1="191" x2="272" y2="191" stroke="#6b6b66" stroke-width="1" stroke-dasharray="2,4" opacity="0.5"/>
+      <text x="30" y="195" class="svg-label" style="font-weight: 600; opacity: 0.6;">W_pc</text>
+
+      <line x1="60" y1="180" x2="330" y2="180" stroke="#4a7c2a" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <text x="335" y="183" class="svg-curve-label" style="fill: #4a7c2a;">W_u</text>
+
+      <text x="30" y="160" class="svg-label" style="font-weight: 600; fill: #4a7c2a;">W_u</text>
+
+      <circle cx="255" cy="180" r="4" fill="#4a7c2a"/>
+      <line x1="255" y1="180" x2="255" y2="320" stroke="#4a7c2a" stroke-width="1" stroke-dasharray="3,3" opacity="0.7"/>
+      <text x="246" y="338" class="svg-label" style="font-weight: 600; fill: #4a7c2a;">Q_u</text>
+
+      <path d="M 224 335 L 250 335" stroke="#4a7c2a" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a7c2a"/>
+        </marker>
+      </defs>
+
+    </svg>
+    <p class="diagram-caption">In monopsony, a union-negotiated wage W_u above W_m but below the MRP at Q_m makes the labour supply effectively horizontal at W_u (up to where it meets the original S). This flattens MCL at W_u too, so the firm's profit-max condition MCL=MRP now gives employment Q_u &gt; Q_m. Both wages AND employment rise.</p>
+  </div>
+
+  <h3>Why this works — the intuition</h3>
+
+  <p>Without the union, the monopsonist restricts hiring because every new worker costs more than their wage (MCL &gt; wage). With a union that says "you must pay at least W_u", the firm can hire as many workers as it wants at exactly W_u — the union has made the supply curve perfectly elastic up to that point. So MCL = W_u (it's flat), no longer steep. The distortion vanishes within that region.</p>
+
+  <p>The union has removed the monopsonist's power to push wages below MRP. Within the range where the wage-floor is binding, the market behaves like a competitive labour market. Employment and wages both rise.</p>
+
+  <div class="examiner">
+    <strong>Examiner point.</strong> The range matters. If the union sets W_u <em>too high</em> (above the PC equilibrium wage W_pc), it behaves like the perfectly competitive case and employment falls below Q_pc. The "sweet spot" for the union is W_m &lt; W_u &lt; (MRP at Q_m) — within this range, both wages AND employment are higher than the monopsony outcome.
+  </div>
+
+  <h3>Evaluation of trade unions</h3>
+
+  <ul>
+    <li><strong>In PC markets:</strong> unions raise wages but cost jobs. Winners and losers among workers.</li>
+    <li><strong>In monopsony markets:</strong> unions can raise both wages and employment. Pure win for workers as a group.</li>
+    <li><strong>Productivity effects.</strong> Higher wages may motivate workers (efficiency wage effect), or may increase training investment, raising productivity. But unions can also cause restrictive practices that reduce productivity.</li>
+    <li><strong>Inflation.</strong> Strong unions during the 1970s contributed to wage-price spirals. Weaker unions today mean less upward wage pressure.</li>
+    <li><strong>Inequality.</strong> Unions compress the wage distribution within unionised sectors. Decline of unions (UK membership ~50% in 1980 vs ~22% today) has contributed to rising wage inequality.</li>
+  </ul>
+
+  <h2 class="underlined">Section 3.1.6.6 — The National Minimum Wage</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The effects of a national minimum wage upon labour markets. The advantages and disadvantages of a national minimum wage.
+  </div>
+
+  <h3>The UK NMW / National Living Wage</h3>
+
+  <p>The UK introduced the National Minimum Wage in 1999. In 2016 it was rebranded and uprated for workers aged 25+ as the National Living Wage (now age 21+). The current rate (April 2026) is around £12.21/hour for the NLW rate. Rates are set by the Low Pay Commission, which advises government.</p>
+
+  <p><strong>The classical analysis:</strong> a minimum wage above the equilibrium wage in a perfectly competitive labour market causes unemployment, just like a union-negotiated wage floor. Same diagram as union-in-PC above. Employers demand fewer workers at the higher wage; more workers want the higher-paid jobs; the gap is unemployment.</p>
+
+  <h3>Why the real-world evidence is more nuanced</h3>
+
+  <p>Empirical studies — famously Card & Krueger's 1994 study of New Jersey fast food — found the predicted job losses were often smaller than the classical model suggested. Why?</p>
+
+  <ul>
+    <li><strong>Many low-wage labour markets are monopsonistic</strong>, not perfectly competitive. In a monopsony, an NMW set within the right range (like a union wage) can raise <strong>both</strong> wages AND employment. Same diagram as union-in-monopsony above.</li>
+    <li><strong>Efficiency wages.</strong> Higher wages may reduce staff turnover, improve morale, increase productivity — partially offsetting the cost to employers.</li>
+    <li><strong>Costs passed to consumers.</strong> Firms raise prices rather than cut jobs — especially in sectors with inelastic demand (pubs, restaurants, care homes).</li>
+    <li><strong>Substitution is slow.</strong> Firms can't instantly substitute capital for labour; employment effects play out over years.</li>
+  </ul>
+
+  <h3>Advantages and disadvantages</h3>
+
+  <div class="two-col">
+    <div class="col-box">
+      <h4>Advantages</h4>
+      <ul>
+        <li>Reduces in-work poverty</li>
+        <li>Counters monopsony exploitation (esp. in low-skill markets)</li>
+        <li>Reduces wage inequality at the bottom</li>
+        <li>May raise productivity (efficiency wages)</li>
+        <li>Reduces cost of in-work benefits (tax credits)</li>
+        <li>Can raise AD through higher spending by low earners</li>
+        <li>Political/fairness case: "a fair day's pay"</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>Disadvantages</h4>
+      <ul>
+        <li>Classical prediction: unemployment for the least skilled</li>
+        <li>Young people most affected (hence lower age-banded rates)</li>
+        <li>Higher costs → higher prices → inflation pressure</li>
+        <li>May squeeze small businesses most (limited ability to pass on)</li>
+        <li>Can accelerate automation (self-service tills, delivery apps)</li>
+        <li>Misses the non-employed (doesn't help those without jobs)</li>
+        <li>Regional mismatch: same NMW hits low-wage regions harder than London</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="examiner">
+    <strong>Examiner tip.</strong> When the question asks "evaluate the effect of raising the NMW", the high-scoring answer does <em>both</em> diagrams side by side — the classical PC unemployment result AND the monopsony result. Then your evaluation says: <em>the effect depends on whether the labour market is closer to perfectly competitive or monopsonistic, and on the size of the increase.</em> That's a textbook A-grade evaluation.
+  </div>
+
+  <h2 class="underlined">Section 3.1.6.7 — Discrimination in the Labour Market</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The conditions necessary for wage discrimination. The impact of gender, ethnicity and other forms of discrimination on wages, levels and types of employment. Real-world examples should be used to illustrate wage discrimination. Students should be able to assess the advantages and disadvantages of wage discrimination for workers, employers and the economy as a whole.
+  </div>
+
+  <h3>What wage discrimination means</h3>
+
+  <p><span class="key-term">Wage discrimination</span> occurs when workers with equal productivity are paid different wages because of personal characteristics (gender, ethnicity, age, disability, etc.) that aren't relevant to their productivity. It's a form of market failure — workers aren't paid their MRP, and resources are misallocated.</p>
+
+  <p>Key distinction: the <strong>raw</strong> pay gap (e.g. UK gender pay gap ~13% mean in 2023) isn't the same as the <strong>discrimination</strong> component. Some of the raw gap reflects occupational sorting, hours worked, experience, and human capital differences. Only the portion that can't be explained by productivity-relevant factors is discrimination in the economic sense.</p>
+
+  <h3>Conditions necessary for wage discrimination</h3>
+
+  <ol>
+    <li><strong>Employer prejudice (Becker's taste-based model).</strong> The employer personally disutility from hiring certain workers and is willing to pay a premium to avoid them — they hire preferred workers even at a higher wage.</li>
+    <li><strong>Statistical discrimination.</strong> Employers use group averages (e.g. "women may take maternity leave") as a proxy for individual productivity when individual info is imperfect. Rational but harmful.</li>
+    <li><strong>Monopsony power.</strong> Employer must have some ability to set wages — in a perfectly competitive market, a discriminating firm would be undercut. Discrimination survives where competition is weak.</li>
+    <li><strong>Imperfect information.</strong> Workers don't know what others are paid (less so now with transparency rules, but still significant).</li>
+    <li><strong>Limited labour mobility.</strong> Workers can't easily switch to employers who would pay them fairly.</li>
+    <li><strong>Weak legal enforcement.</strong> If equality law is weak or poorly enforced, discrimination persists.</li>
+  </ol>
+
+  <h3>The discrimination diagram</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="disc-title">
+      <title id="disc-title">Wage discrimination diagram</title>
+
+      <line x1="60" y1="30" x2="60" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="280" x2="460" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="35" class="svg-axis-label">Wage</text>
+      <text x="335" y="310" class="svg-axis-label">Quantity of labour</text>
+
+      <line x1="90" y1="50" x2="450" y2="260" stroke="#b8410f" stroke-width="2.5"/>
+      <text x="455" y="265" class="svg-curve-label" style="fill: #b8410f;">MRP (actual)</text>
+
+      <line x1="90" y1="130" x2="400" y2="260" stroke="#b8410f" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
+      <text x="280" y="215" class="svg-curve-label" style="fill: #b8410f; font-size: 11px;">MRP (perceived, group B)</text>
+
+      <line x1="90" y1="260" x2="440" y2="80" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="445" y="80" class="svg-curve-label">S</text>
+
+      <circle cx="281" cy="161" r="4" fill="#1a1a1a"/>
+      <line x1="60" y1="161" x2="281" y2="161" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="166" class="svg-label" style="font-weight: 600;">W_A</text>
+
+      <circle cx="230" cy="189" r="4" fill="#1a1a1a"/>
+      <line x1="60" y1="189" x2="230" y2="189" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="194" class="svg-label" style="font-weight: 600;">W_B</text>
+
+      <line x1="281" y1="161" x2="281" y2="280" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="270" y="298" class="svg-label" style="font-weight: 600;">Q_A</text>
+      <line x1="230" y1="189" x2="230" y2="280" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="220" y="298" class="svg-label" style="font-weight: 600;">Q_B</text>
+
+      <line x1="72" y1="161" x2="72" y2="189" stroke="#8b1a1a" stroke-width="1.5"/>
+      <line x1="68" y1="161" x2="76" y2="161" stroke="#8b1a1a" stroke-width="1.5"/>
+      <line x1="68" y1="189" x2="76" y2="189" stroke="#8b1a1a" stroke-width="1.5"/>
+      <text x="80" y="178" class="svg-label" style="font-size: 10px; fill: #8b1a1a; font-weight: 600;">wage gap</text>
+
+    </svg>
+    <p class="diagram-caption">Equally productive workers. Group A (preferred) paid W_A based on actual MRP; group B (discriminated) paid W_B based on perceived lower MRP. Group B also has lower employment Q_B.</p>
+  </div>
+
+  <h3>Real-world examples</h3>
+
+  <ul>
+    <li><strong>UK gender pay gap:</strong> ~13% median hourly pay gap in 2023, down from ~27% in 1997. Most of it due to occupational sorting and part-time patterns, but unexplained residual persists.</li>
+    <li><strong>UK ethnicity pay gap:</strong> varies by group — e.g. Bangladeshi and Pakistani workers historically paid below white counterparts with same education.</li>
+    <li><strong>Disability pay gap:</strong> ~14% in 2023 (ONS). Disabled workers less likely to be in work at all.</li>
+    <li><strong>Age discrimination:</strong> younger workers have lower age-banded NMW rates; older workers face hiring discrimination.</li>
+  </ul>
+
+  <h3>Consequences of wage discrimination</h3>
+
+  <div class="two-col">
+    <div class="col-box">
+      <h4>For workers</h4>
+      <ul>
+        <li>Discriminated-against workers get lower pay AND less employment</li>
+        <li>Reduced incentive to invest in human capital</li>
+        <li>Entrenched inequality, reduced social mobility</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>For the economy</h4>
+      <ul>
+        <li>Allocative inefficiency — wages don't reflect MRP</li>
+        <li>Lost productivity — talent misallocated</li>
+        <li>Lower aggregate output than potential</li>
+        <li>Firms who discriminate have higher costs (Becker's argument that competition erodes discrimination)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Policy responses</h3>
+
+  <ul>
+    <li><strong>Equality Act 2010</strong> — makes direct/indirect discrimination illegal across protected characteristics</li>
+    <li><strong>Gender pay gap reporting</strong> — companies 250+ employees must publish pay gap data annually</li>
+    <li><strong>Equal pay legislation</strong> — equal pay for equal work</li>
+    <li><strong>Increased enforcement</strong> via Equality and Human Rights Commission</li>
+    <li><strong>Education and training</strong> to counter occupational segregation</li>
+    <li><strong>Limits:</strong> hard to prove in individual cases; raw pay gaps remain despite legal framework</li>
+  </ul>
+
+  <h2 class="underlined">Two-minute summary — the whole section</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>Monopsony:</strong> single buyer of labour. MCL above S. Employs fewer, pays less than PC. Points: below Q_pc, below W_pc, below MRP.</li>
+      <li><strong>Trade unions in PC market:</strong> raise wages, cut employment, cause unemployment.</li>
+      <li><strong>Trade unions in monopsony:</strong> can raise <em>both</em> wages AND employment. Flatten MCL.</li>
+      <li><strong>NMW:</strong> classical prediction says unemployment. Monopsony model says can help. Reality: depends on market structure and size of increase.</li>
+      <li><strong>Discrimination:</strong> needs monopsony power + imperfect info + weak competition to survive. Lower pay AND lower employment for the discriminated group. Efficiency loss.</li>
+    </ul>
+    <p style="margin-top: 10px;"><strong>The unifying theme:</strong> real labour markets are imperfect. Monopsony, unions, NMW, and discrimination are all departures from the PC benchmark that examiners love because they test whether you really understand the PC model's assumptions.</p>
+  </div>
+
+  <h2 class="underlined">Retrieval test — 25 minutes</h2>
+
+  <div class="card-green retrieval">
+    <h3>Close the pack. Answer from memory.</h3>
+    <ol>
+      <li>Define monopsony. Give two real-world examples. <span class="answer-space"></span></li>
+      <li>Explain in one sentence why the MCL curve lies above the supply curve in a monopsony. <span class="answer-space"></span></li>
+      <li>In the monopsony diagram, at what point does the firm choose employment? And at what point (different curve!) does the wage get set? <span class="answer-space"></span></li>
+      <li>Write the examiner-approved summary of the monopsony outcome: "employment of __ workers at a wage of __, below ___ and below ___". Fill in the four blanks. <span class="answer-space"></span></li>
+      <li>Sketch the monopsony diagram from memory on blank paper. Label every curve and every point. Check against the pack.</li>
+      <li>Name five factors that affect trade union bargaining power. <span class="answer-space"></span></li>
+      <li>A union enters a previously competitive labour market. What happens to W? What happens to Q? What is created? <span class="answer-space"></span></li>
+      <li>A union enters a monopsonistic labour market. What happens to W? What happens to Q? Why? <span class="answer-space"></span></li>
+      <li>What's the "sweet spot" range for a union-negotiated wage in a monopsony? <span class="answer-space"></span></li>
+      <li>Give three arguments for and three arguments against the NMW. <span class="answer-space"></span></li>
+      <li>Why might the real-world employment effects of an NMW increase be smaller than the classical model predicts? Name three reasons. <span class="answer-space"></span></li>
+      <li>List four conditions necessary for wage discrimination to persist. <span class="answer-space"></span></li>
+      <li>What's the distinction between taste-based discrimination and statistical discrimination? <span class="answer-space"></span></li>
+      <li>Why is Becker's argument that competition erodes discrimination relevant to the economy-level evaluation? <span class="answer-space"></span></li>
+      <li>Sketch the union-in-monopsony diagram from memory. You should be able to show how the union raises W <strong>and</strong> Q.</li>
+    </ol>
+    <p style="margin-top: 14px; font-style: italic; color: var(--muted); font-size: 12.5px;">Three diagrams to draw unassisted. Two from memory in ink, one from memory in pencil. Anything you got wrong = Monday morning's warm-up.</p>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-labour-1.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Yesterday</div>
+      Labour market part 1
+    </a>
+    <a href="index.html" class="pack-nav-next">
+      <div class="pack-nav-label">Back to</div>
+      All study packs
+    </a>
+  </div>
+
+  <footer>
+    AQA Economics 7136 · Sections 3.1.6.4 – 3.1.6.7 · Sun 19 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>
