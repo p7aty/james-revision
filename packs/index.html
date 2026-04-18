@@ -31,69 +31,139 @@
     <strong>How packs work.</strong> Packs are built ~2 days before they're needed so they stay focused on what matters for that week. Packs marked <span style="color: var(--green); font-weight: 600;">ready</span> are available now; others show "coming" with the scheduled date.
   </div>
 
-  <h2 class="underlined">Economics</h2>
-  <div class="pack-grid">
-    <a href="econ-labour-1.html" class="pack-card">
-      <div class="pack-card-date">Sat 18 Apr</div>
-      <div class="pack-card-title">Labour market part 1</div>
-      <div class="pack-card-spec">3.1.6.1–3 · Demand, supply, perfect competition</div>
-      <span class="pack-card-status done">Ready</span>
-    </a>
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Sun 19 Apr</div>
-      <div class="pack-card-title">Labour market part 2</div>
-      <div class="pack-card-spec">3.1.6.4–7 · Monopsony, unions, NMW, discrimination</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Mon 20 Apr</div>
-      <div class="pack-card-title">Market structures 1</div>
-      <div class="pack-card-spec">3.1.5.2–3 · Objectives, perfect competition</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-  </div>
+  <div id="pack-listing"></div>
 
-  <h2 class="underlined">Further Maths</h2>
-  <div class="pack-grid">
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Mon 20 Apr</div>
-      <div class="pack-card-title">Linear transformations</div>
-      <div class="pack-card-spec">C2 · 2D/3D matrix transformations</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Tue 21 Apr</div>
-      <div class="pack-card-title">Maclaurin series</div>
-      <div class="pack-card-spec">D3 · Standard series, applications</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-  </div>
-
-  <h2 class="underlined">Politics</h2>
-  <div class="pack-grid">
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Wed 22 Apr</div>
-      <div class="pack-card-title">Comparative theories</div>
-      <div class="pack-card-spec">COMP-1 · Rational, cultural, structural</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-  </div>
-
-  <h2 class="underlined">Maths</h2>
-  <div class="pack-grid">
-    <div class="pack-card" style="opacity: 0.6; cursor: default;">
-      <div class="pack-card-date">Fri 24 Apr</div>
-      <div class="pack-card-title">Trig ambers</div>
-      <div class="pack-card-spec">E2, E4 · Small angles, R sin(x+α)</div>
-      <span class="pack-card-status coming">Coming</span>
-    </div>
-  </div>
-
-  <footer>
-    ~40 packs will be built across the 62 days · focus is on red and amber topics only
-  </footer>
+  <footer id="pack-footer"></footer>
 
 </div>
+
+<script src="../assets/schedule.js"></script>
+<script>
+(function() {
+  // Packs that are already built and live. Add slug here when you deploy a new pack.
+  const READY = new Set([
+    'econ-labour-1'
+  ]);
+
+  // Titles and spec descriptions for each pack slug
+  const PACK_META = {
+    'econ-labour-1':          { title: 'Labour market part 1',      spec: '3.1.6.1–3 · Demand, supply, perfect competition' },
+    'econ-labour-2':          { title: 'Labour market part 2',      spec: '3.1.6.4–7 · Monopsony, unions, NMW, discrimination' },
+    'econ-market-structures-1': { title: 'Market structures 1',     spec: '3.1.5.2–3 · Objectives, perfect competition' },
+    'econ-market-structures-2': { title: 'Market structures 2',     spec: '3.1.5.4/7–9 · Monopolistic, price disc., contestability' },
+    'econ-labour-essays':     { title: 'Labour market essays',      spec: 'Essay plans on labour market' },
+    'econ-externalities':     { title: 'Externalities & market failure', spec: '3.1.8.2, 3.1.8.4 · MSB/MSC diagrams' },
+    'econ-competition-policy': { title: 'Competition policy',       spec: '3.1.8.7 · CMA, merger cases + methodology ambers' },
+    'econ-financial-1':       { title: 'Financial markets 1',       spec: '3.2.4.1–2 · Money/capital markets, banks' },
+    'econ-financial-2':       { title: 'Financial markets 2',       spec: '3.2.4.3 · Central banks, MPC, QE' },
+    'econ-financial-3':       { title: 'Financial markets 3',       spec: '3.2.4.4 · Regulation + index numbers' },
+    'econ-macro-ambers-1':    { title: 'Macro ambers 1',            spec: '3.2.2.4–6 · Multiplier, AS determinants' },
+    'econ-micro-cleanup':     { title: 'Micro cleanup',             spec: 'Jan-dated ambers across 3.1' },
+    'econ-micro-remaining':   { title: 'Micro remaining ambers',    spec: '3.1.5.11, 3.1.6.2, 3.1.7.1, 3.1.8.2' },
+    'econ-essay-technique':   { title: 'Essay technique drill',     spec: 'Monopoly, NMW, market failure plans' },
+    'econ-inflation':         { title: 'Inflation + Phillips',      spec: '3.2.3.3–4 · MV=PQ, SR/LR Phillips' },
+    'econ-international':     { title: 'International',             spec: '3.2.6.1–3 · Globalisation, trade, BoP' },
+    'econ-supply-side':       { title: 'Supply-side policies',      spec: '3.2.5.2 · Current UK examples' },
+    'econ-p3-technique':      { title: 'Paper 3 technique',         spec: 'Synoptic case study format' },
+    'fm-linear-transformations': { title: 'Linear transformations', spec: 'C2 · 2D/3D matrix transformations' },
+    'fm-maclaurin':           { title: 'Maclaurin series',          spec: 'D3 · Standard series, applications' },
+    'fm-hyperbolics':         { title: 'Hyperbolics',               spec: 'H2, H3 · Inverse + calculus' },
+    'fm-improper-integrals':  { title: 'Improper integrals',        spec: 'E1, E5 · Improper + inverse trig/hyp' },
+    'fm-shm':                 { title: 'SHM + oscillations',        spec: 'I3 · Simple harmonic, damped, forced' },
+    'fm-core-review':         { title: 'FM core review',            spec: 'All 7 core reds quick re-test' },
+    'fm-momentum':            { title: 'Momentum + impulse',        spec: 'MA1 · Mechanics reactivation' },
+    'fm-collisions':          { title: 'Collisions',                spec: 'MA2, MA3 · Restitution, impacts' },
+    'fm-work-energy':         { title: 'Work + EPE',                spec: 'MB1, MB4 · Work, Hooke, EPE' },
+    'fm-power-circular':      { title: 'Power + horizontal circular', spec: 'MB5, MC1' },
+    'fm-vertical-circular':   { title: 'Vertical circular motion',  spec: 'MC2 · Energy around the loop' },
+    'fm-equilibrium':         { title: 'Equilibrium / toppling',    spec: 'MD3 · Moments + tipping' },
+    'fm-variable-force':      { title: 'Variable force + mass',     spec: 'ME1, ME2' },
+    'fm-stats-distributions': { title: 'Rectangular + exponential', spec: 'SC3, SC4 · Continuous distributions' },
+    'fm-goodness-of-fit':     { title: 'Goodness of fit',           spec: 'SE1 · Chi-squared tests' },
+    'math-trig-ambers':       { title: 'Trig ambers',               spec: 'E2, E4 · Small angles, R sin(x+α)' },
+    'math-calc-ambers':       { title: 'Calculus ambers',           spec: 'G2, H4 · Chain/product/quotient + parts' },
+    'math-integration-ambers': { title: 'Integration ambers',       spec: 'H5, H6 · Partial fractions, diff eqns' },
+    'pol-comp-theories':      { title: 'Comparative theories',      spec: 'COMP-1 · Rational, cultural, structural' },
+    'pol-us-pressure-groups': { title: 'US pressure groups',        spec: 'US-7 · PACs, Super PACs, case studies' },
+    'pol-uk-us-ambers':       { title: 'UK & US ambers',            spec: 'UK-7, US-5 · Parties, electoral' },
+    'pol-uk-devolution':      { title: 'UK devolution + elections', spec: 'UK-5, UK-6' },
+    'pol-liberalism-thinkers': { title: 'Liberalism thinkers',      spec: 'LIB-T2 · Mill, Wollstonecraft, Green' }
+  };
+
+  const SUBJECT_ORDER = ['econ', 'fm', 'math', 'pol'];
+  const SUBJECT_NAMES = {
+    econ: 'Economics',
+    fm: 'Further Maths',
+    math: 'Maths',
+    pol: 'Politics'
+  };
+
+  // Walk the schedule and find the earliest date each pack is scheduled
+  const packsMap = {};
+  for (const week of SCHEDULE) {
+    for (const day of week.days) {
+      for (const task of day.tasks) {
+        if (!task.pack || task.pack === 'past-paper-log') continue;
+        if (!packsMap[task.pack] || day.date < packsMap[task.pack].date) {
+          packsMap[task.pack] = { slug: task.pack, date: day.date, subj: task.subj };
+        }
+      }
+    }
+  }
+
+  const grouped = { econ: [], fm: [], math: [], pol: [] };
+  for (const slug in packsMap) {
+    const p = packsMap[slug];
+    if (grouped[p.subj]) grouped[p.subj].push(p);
+  }
+  for (const s of SUBJECT_ORDER) {
+    grouped[s].sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  const today = todayISO();
+  let html = '';
+  let totalReady = 0;
+  let totalPlanned = 0;
+
+  for (const subj of SUBJECT_ORDER) {
+    const items = grouped[subj];
+    if (!items.length) continue;
+    html += `<h2 class="underlined">${SUBJECT_NAMES[subj]}</h2><div class="pack-grid">`;
+    for (const p of items) {
+      totalPlanned++;
+      const meta = PACK_META[p.slug] || { title: p.slug, spec: '' };
+      const isReady = READY.has(p.slug);
+      if (isReady) totalReady++;
+      const isPast = p.date < today;
+      const dateLabel = formatDate(p.date).toUpperCase();
+
+      if (isReady) {
+        html += `
+          <a href="${p.slug}.html" class="pack-card">
+            <div class="pack-card-date">${dateLabel}</div>
+            <div class="pack-card-title">${meta.title}</div>
+            <div class="pack-card-spec">${meta.spec}</div>
+            <span class="pack-card-status done">Ready</span>
+          </a>`;
+      } else {
+        const style = isPast ? 'opacity: 0.4; cursor: default;' : 'opacity: 0.6; cursor: default;';
+        html += `
+          <div class="pack-card" style="${style}">
+            <div class="pack-card-date">${dateLabel}</div>
+            <div class="pack-card-title">${meta.title}</div>
+            <div class="pack-card-spec">${meta.spec}</div>
+            <span class="pack-card-status coming">Coming</span>
+          </div>`;
+      }
+    }
+    html += `</div>`;
+  }
+
+  document.getElementById('pack-listing').innerHTML = html;
+  document.getElementById('pack-footer').textContent =
+    `${totalReady} of ${totalPlanned} packs ready · focus is on red and amber topics only`;
+})();
+</script>
 
 </body>
 </html>
