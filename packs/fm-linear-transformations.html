@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear transformations · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .matrix {
+    display: inline-block;
+    border-left: 2px solid var(--ink);
+    border-right: 2px solid var(--ink);
+    padding: 2px 10px;
+    margin: 0 3px;
+    font-family: 'Fraunces', serif;
+    vertical-align: middle;
+  }
+  .matrix-row {
+    display: block;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .matrix-row-inline {
+    display: flex;
+    gap: 10px;
+  }
+  .formula {
+    font-family: 'Fraunces', serif;
+    background: #f5f3eb;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+  .matrix-block {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 4px;
+    display: inline-block;
+    font-family: 'Fraunces', serif;
+    min-width: 100px;
+  }
+  .matrix-table td {
+    padding: 4px 8px;
+    border: none;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+  }
+  .matrix-table {
+    display: inline-table;
+    border-left: 2px solid var(--ink);
+    border-right: 2px solid var(--ink);
+    margin: 0 3px;
+    width: auto;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../papers/index.html">Papers</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Further Maths · 7367 · Core Pure · Mon 20 Apr</p>
+  <h1>Linear Transformations</h1>
+  <p class="page-subtitle">2D and 3D matrix transformations · Invariant points and lines</p>
+
+  <div class="card-yellow">
+    <strong>Session plan — this is a RED topic</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>15 min</strong> — Watch an ExamSolutions video on matrix transformations (or similar).</li>
+      <li><strong>25 min</strong> — Learn the standard 2D matrices below cold — the ones listed in the formula booklet are NOT enough, you need rotation and reflection matrices at memory level.</li>
+      <li><strong>30 min</strong> — Work through the three worked examples below.</li>
+      <li><strong>20 min</strong> — Practice questions at the bottom.</li>
+    </ol>
+    <p style="margin-top: 10px; font-size: 12.5px;"><strong>If stuck:</strong> book a tutor session this week. This topic is foundational for invariant lines, eigenvectors (later), and shows up in most FM Paper 1s.</p>
+  </div>
+
+  <h2 class="underlined">Core idea</h2>
+
+  <p>A 2×2 matrix acting on a position vector (x, y)ᵀ transforms the point to a new location (x', y')ᵀ. Every 2D linear transformation corresponds to a unique 2×2 matrix, and every 2×2 matrix corresponds to some linear transformation.</p>
+
+  <div class="card">
+    <p style="font-family: 'Fraunces', serif; font-size: 15px; text-align: center; margin: 10px 0;">
+      <span class="matrix-table"><table class="matrix-table"><tr><td>x'</td></tr><tr><td>y'</td></tr></table></span>
+      =
+      <span class="matrix-table"><table class="matrix-table"><tr><td>a</td><td>b</td></tr><tr><td>c</td><td>d</td></tr></table></span>
+      <span class="matrix-table"><table class="matrix-table"><tr><td>x</td></tr><tr><td>y</td></tr></table></span>
+    </p>
+    <p style="margin-top: 8px;"><strong>The trick to finding any transformation matrix:</strong> work out where the standard basis vectors go.</p>
+    <ul style="margin-top: 6px;">
+      <li>The first column of the matrix tells you where <strong>(1, 0)</strong> — i.e. the x-axis unit vector <strong>i</strong> — gets mapped to.</li>
+      <li>The second column tells you where <strong>(0, 1)</strong> — i.e. the y-axis unit vector <strong>j</strong> — gets mapped to.</li>
+    </ul>
+    <p style="margin-top: 8px;">Draw a sketch of where i and j end up, read off the columns. Done.</p>
+  </div>
+
+  <h2 class="underlined">Standard 2D matrices — memorise cold</h2>
+
+  <h3>Reflections</h3>
+  <table>
+    <thead>
+      <tr><th>Transformation</th><th>Matrix</th><th>Invariant line</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reflection in x-axis (y = 0)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td></tr><tr><td>0</td><td>−1</td></tr></table></span></td>
+        <td>y = 0 (x-axis)</td>
+      </tr>
+      <tr>
+        <td>Reflection in y-axis (x = 0)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>−1</td><td>0</td></tr><tr><td>0</td><td>1</td></tr></table></span></td>
+        <td>x = 0 (y-axis)</td>
+      </tr>
+      <tr>
+        <td>Reflection in y = x</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></span></td>
+        <td>y = x</td>
+      </tr>
+      <tr>
+        <td>Reflection in y = −x</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>−1</td></tr><tr><td>−1</td><td>0</td></tr></table></span></td>
+        <td>y = −x</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Rotations (about origin, anticlockwise)</h3>
+  <table>
+    <thead>
+      <tr><th>Angle θ</th><th>Matrix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>General θ anticlockwise</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>cos θ</td><td>−sin θ</td></tr><tr><td>sin θ</td><td>cos θ</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>90° anticlockwise</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>−1</td></tr><tr><td>1</td><td>0</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>180°</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>−1</td><td>0</td></tr><tr><td>0</td><td>−1</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>270° anticlockwise (= 90° clockwise)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>1</td></tr><tr><td>−1</td><td>0</td></tr></table></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 13.5px;"><strong>Tip.</strong> For clockwise rotation, negate the angle θ, or swap the signs of the sin terms. The 90° AC matrix in particular is worth memorising — comes up constantly.</p>
+
+  <h3>Enlargements</h3>
+  <table>
+    <thead>
+      <tr><th>Transformation</th><th>Matrix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Enlargement scale factor k about origin</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>k</td><td>0</td></tr><tr><td>0</td><td>k</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>Stretch factor k in x-direction only</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>k</td><td>0</td></tr><tr><td>0</td><td>1</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>Stretch factor k in y-direction only</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td></tr><tr><td>0</td><td>k</td></tr></table></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Shears</h3>
+  <table>
+    <thead>
+      <tr><th>Transformation</th><th>Matrix</th><th>Invariant line</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Shear parallel to x-axis, factor k</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>k</td></tr><tr><td>0</td><td>1</td></tr></table></span></td>
+        <td>x-axis (y = 0)</td>
+      </tr>
+      <tr>
+        <td>Shear parallel to y-axis, factor k</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td></tr><tr><td>k</td><td>1</td></tr></table></span></td>
+        <td>y-axis (x = 0)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="underlined">Standard 3D matrices</h2>
+
+  <p>Same idea, but now 3×3 matrices. The columns give images of i = (1,0,0), j = (0,1,0), k = (0,0,1).</p>
+
+  <h3>Reflections</h3>
+  <table>
+    <thead>
+      <tr><th>Plane of reflection</th><th>Matrix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reflection in xy-plane (z = 0)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>−1</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>Reflection in xz-plane (y = 0)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>−1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>Reflection in yz-plane (x = 0)</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>−1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td></tr></table></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 13px;"><strong>Pattern:</strong> the axis whose coordinate flips sign is the one perpendicular to the reflection plane. "Reflect in xy-plane" flips z.</p>
+
+  <h3>Rotations about coordinate axes</h3>
+  <table>
+    <thead>
+      <tr><th>Axis of rotation</th><th>Matrix (angle θ)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>About x-axis</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>cos θ</td><td>−sin θ</td></tr><tr><td>0</td><td>sin θ</td><td>cos θ</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>About y-axis</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>cos θ</td><td>0</td><td>sin θ</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>−sin θ</td><td>0</td><td>cos θ</td></tr></table></span></td>
+      </tr>
+      <tr>
+        <td>About z-axis</td>
+        <td><span class="matrix-table"><table class="matrix-table"><tr><td>cos θ</td><td>−sin θ</td><td>0</td></tr><tr><td>sin θ</td><td>cos θ</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td></tr></table></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 13px;"><strong>Pattern.</strong> The axis you're rotating about has a row and column of (1, 0, 0) or equivalent — it's invariant. The remaining 2×2 block is the standard 2D rotation matrix. The y-axis one has sin with opposite signs — catch this.</p>
+
+  <div class="examiner">
+    <strong>Examiner note.</strong> AQA give you the 2D rotation matrix in the formula booklet but NOT the 3D ones. You need to derive or memorise these.
+  </div>
+
+  <h2 class="underlined">Composite transformations</h2>
+
+  <div class="card">
+    <p>If transformation T₁ is applied <em>first</em>, followed by T₂, the combined matrix is:</p>
+    <p style="text-align: center; margin: 10px 0; font-family: 'Fraunces', serif; font-size: 18px;">M = T₂ T₁</p>
+    <p><strong>The later transformation goes on the LEFT.</strong> This trips up everyone. The matrix closest to the vector acts first.</p>
+    <p style="margin-top: 8px;">Matrix multiplication is <em>not</em> commutative — the order matters. T₁T₂ ≠ T₂T₁ in general.</p>
+  </div>
+
+  <h2 class="underlined">Invariant points and invariant lines</h2>
+
+  <div class="card">
+    <h4 style="margin-top: 0;">Critical distinction — write this out until you can't forget it</h4>
+    <ul>
+      <li><strong>Invariant point</strong> — maps to itself: <em>Tp = p</em>. The origin is always invariant under any linear transformation.</li>
+      <li><strong>Line of invariant points</strong> — every point on the line is invariant. Each point stays exactly where it was.</li>
+      <li><strong>Invariant line</strong> — the line maps to itself as a whole, but individual points can slide along it. A weaker condition than "line of invariant points".</li>
+    </ul>
+    <p style="margin-top: 8px;">A line of invariant points IS an invariant line, but not vice versa. Reflections and shears typically have lines of invariant points. Stretches and enlargements typically have invariant lines where points slide along.</p>
+  </div>
+
+  <h3>Finding invariant points</h3>
+
+  <p>Solve <strong>Mp = p</strong>, i.e. (M − I)p = 0. This is a homogeneous system. If det(M − I) ≠ 0, only the origin is invariant. If det(M − I) = 0, there's a line of invariant points.</p>
+
+  <h3>Finding invariant lines through the origin</h3>
+
+  <p>Assume a line y = mx. A general point (x, mx) must map to another point on the same line — i.e. y' = mx' after the transformation. Substitute into the transformation equations, equate, and solve for m. Usually get a quadratic giving up to two invariant lines.</p>
+
+  <h2 class="underlined">The determinant — area and volume scale factor</h2>
+
+  <div class="card">
+    <ul>
+      <li><strong>det(M) = area scale factor</strong> (in 2D). An enlargement by k has |det M| = k².</li>
+      <li><strong>det(M) &gt; 0</strong> — orientation preserved (rotations, enlargements).</li>
+      <li><strong>det(M) &lt; 0</strong> — orientation reversed (any reflection).</li>
+      <li><strong>det(M) = 0</strong> — the matrix is singular. The transformation squashes 2D space onto a line or point — information is lost.</li>
+      <li><strong>In 3D:</strong> det(M) = volume scale factor.</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Worked example 1 — describe a transformation</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Describe the transformation represented by <span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>−1</td></tr><tr><td>−1</td><td>0</td></tr></table></span>.</p>
+
+    <p style="margin-top: 10px;"><strong>Method 1: where does i go?</strong> i = (1, 0). First column of matrix is (0, −1) — so i → (0, −1), i.e. the negative y-axis.</p>
+    <p><strong>Where does j go?</strong> j = (0, 1). Second column is (−1, 0) — so j → (−1, 0), the negative x-axis.</p>
+    <p style="margin-top: 6px;"><strong>Sketch:</strong> the unit square has flipped to the third quadrant in a reflected way (not just rotated). det = (0)(0) − (−1)(−1) = −1, so it's orientation-reversing. So a reflection.</p>
+    <p><strong>In what line?</strong> The line y = −x swaps i ↔ −j and j ↔ −i. Yes. <strong>Answer: reflection in the line y = −x.</strong></p>
+  </div>
+
+  <h2 class="underlined">Worked example 2 — find the matrix for a transformation</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find the matrix representing a reflection in y = x followed by a rotation of 90° anticlockwise about the origin.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Reflection first = T₁, rotation second = T₂. Combined M = T₂T₁.</p>
+
+    <p>T₁ (reflection in y = x) = <span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></span></p>
+
+    <p>T₂ (90° AC rotation) = <span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>−1</td></tr><tr><td>1</td><td>0</td></tr></table></span></p>
+
+    <p style="margin-top: 10px;">M = T₂T₁ =
+      <span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>−1</td></tr><tr><td>1</td><td>0</td></tr></table></span>
+      <span class="matrix-table"><table class="matrix-table"><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></span>
+      =
+      <span class="matrix-table"><table class="matrix-table"><tr><td>−1</td><td>0</td></tr><tr><td>0</td><td>1</td></tr></table></span>
+    </p>
+    <p><strong>This is reflection in the y-axis.</strong> As a sanity check: reflecting a point in y=x then rotating 90° AC is indeed the same as reflecting in the y-axis — try it with a test point like (3, 0).</p>
+  </div>
+
+  <h2 class="underlined">Worked example 3 — find an invariant line</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find the invariant lines (through the origin) of <span class="matrix-table"><table class="matrix-table"><tr><td>3</td><td>4</td></tr><tr><td>9</td><td>−2</td></tr></table></span>.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Take a general point (x, mx) on the line y = mx. After transformation:</p>
+    <p style="margin-left: 20px;">x' = 3x + 4(mx) = (3 + 4m)x</p>
+    <p style="margin-left: 20px;">y' = 9x + (−2)(mx) = (9 − 2m)x</p>
+
+    <p style="margin-top: 6px;">For the image to still be on y = mx, we need y' = mx':</p>
+    <p style="margin-left: 20px;">(9 − 2m)x = m(3 + 4m)x</p>
+    <p style="margin-left: 20px;">9 − 2m = 3m + 4m²</p>
+    <p style="margin-left: 20px;">4m² + 5m − 9 = 0</p>
+    <p style="margin-left: 20px;">(4m + 9)(m − 1) = 0</p>
+    <p style="margin-left: 20px;">m = 1 or m = −9/4</p>
+
+    <p style="margin-top: 10px;"><strong>Answer: y = x and y = −9x/4 are the invariant lines.</strong></p>
+
+    <p style="margin-top: 8px; font-size: 13px;">(Also check if the y-axis itself is invariant by trying a point on it — if (0, y) maps to (4y, −2y), not on y-axis, so y-axis is not invariant here.)</p>
+  </div>
+
+  <h2 class="underlined">Two-minute summary</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>Find the matrix:</strong> column 1 is where (1,0) goes; column 2 is where (0,1) goes.</li>
+      <li><strong>Composite:</strong> later transformation on the LEFT. M = T₂T₁ applies T₁ first.</li>
+      <li><strong>Invariant point</strong>: Mp = p. Origin always invariant.</li>
+      <li><strong>Line of invariant points:</strong> every point stays (reflections, shears).</li>
+      <li><strong>Invariant line:</strong> line maps to itself but points can slide (stretches).</li>
+      <li><strong>det(M):</strong> area (2D) or volume (3D) scale factor. Negative = reflection. Zero = singular.</li>
+      <li><strong>Key matrices to memorise:</strong> reflections in x-axis, y-axis, y=x, y=−x; 90° rotation AC; general rotation [cos, -sin / sin, cos]; enlargement by k.</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Practice questions</h2>
+
+  <div class="card-green retrieval">
+    <ol>
+      <li>Describe geometrically the transformation represented by <span class="matrix-table"><table class="matrix-table"><tr><td>2</td><td>0</td></tr><tr><td>0</td><td>2</td></tr></table></span>. <span class="answer-space"></span></li>
+      <li>Find the matrix representing a rotation of 180° about the origin. <span class="answer-space"></span></li>
+      <li>Find the matrix for a reflection in y = x followed by an enlargement scale factor 3 about origin. <span class="answer-space"></span></li>
+      <li>A triangle has vertices at (1, 0), (3, 0), (2, 2). Find the coordinates of the image after applying <span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>2</td></tr><tr><td>0</td><td>1</td></tr></table></span>. What transformation is this? <span class="answer-space"></span></li>
+      <li>Find det of <span class="matrix-table"><table class="matrix-table"><tr><td>3</td><td>1</td></tr><tr><td>2</td><td>4</td></tr></table></span>. What's the area scale factor? <span class="answer-space"></span></li>
+      <li>Find the invariant lines through the origin of <span class="matrix-table"><table class="matrix-table"><tr><td>5</td><td>−2</td></tr><tr><td>−4</td><td>3</td></tr></table></span>. <span class="answer-space"></span></li>
+      <li>Write the matrix for a rotation of 60° anticlockwise about the x-axis in 3D. <span class="answer-space"></span></li>
+      <li>A 2×2 matrix M has det(M) = −1. What can you say about the transformation? <span class="answer-space"></span></li>
+      <li>Find the line of invariant points for the shear <span class="matrix-table"><table class="matrix-table"><tr><td>1</td><td>3</td></tr><tr><td>0</td><td>1</td></tr></table></span>. <span class="answer-space"></span></li>
+      <li><strong>From memory</strong>: sketch the unit square and its image under a 45° anticlockwise rotation. Check by computing the vertices using the matrix. (You should get them at 45° to the original.)</li>
+    </ol>
+    <p style="margin-top: 14px; font-style: italic; color: var(--muted); font-size: 12.5px;">
+      <strong>Answers to key Qs.</strong>
+      Q1: enlargement scale factor 2 about origin.
+      Q2: [[-1,0],[0,-1]].
+      Q4: (1,0)→(1,0), (3,0)→(3,0), (2,2)→(6,2). Shear parallel to x-axis, factor 2.
+      Q5: det = 10, area scale factor 10.
+      Q6: m² − m/2 − 2 = 0, so m = 2 or m = −1, giving y = 2x and y = −x.
+      Q8: orientation-reversing, and preserves area (magnitude 1) — likely a reflection.
+      Q9: the x-axis (y = 0) is the line of invariant points.
+    </p>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-market-structures-1.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Also today</div>
+      Market structures 1
+    </a>
+    <a href="index.html" class="pack-nav-next">
+      <div class="pack-nav-label">Back to</div>
+      All study packs
+    </a>
+  </div>
+
+  <footer>
+    AQA Further Maths 7367 · Core Pure C2 · Mon 20 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>
