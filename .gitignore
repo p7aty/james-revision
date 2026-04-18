@@ -9,3 +9,8 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+
+# Large binary artifacts - PDFs tracked via git LFS would be ideal,
+# but for now we host papers on the filesystem only and don't version them.
+papers/**/*.pdf
+papers/results.json
