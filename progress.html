@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James's Revision · Progress</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="index.html">Today</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="packs/index.html">Study packs</a>
+      <a href="exams.html">Exams</a>
+      <a href="progress.html" class="active">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">Snapshot from RAG tracker · 18 April 2026</p>
+  <h1>Progress</h1>
+  <p class="page-subtitle">Topic status at start of revision plan</p>
+
+  <h2 class="underlined">RAG breakdown by subject</h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;">
+    <div class="card">
+      <h3 style="margin-top: 0; color: var(--econ);">Economics</h3>
+      <table style="margin: 0;">
+        <tr><td style="color: var(--red); font-weight: 600;">Red</td><td>14</td></tr>
+        <tr><td style="color: var(--amber); font-weight: 600;">Amber</td><td>27</td></tr>
+        <tr><td style="color: var(--green); font-weight: 600;">Green</td><td>43</td></tr>
+      </table>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">3 papers · Total 84 topics</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top: 0; color: var(--pol);">Politics</h3>
+      <table style="margin: 0;">
+        <tr><td style="color: var(--red); font-weight: 600;">Red</td><td>4</td></tr>
+        <tr><td style="color: var(--amber); font-weight: 600;">Amber</td><td>20</td></tr>
+        <tr><td style="color: var(--green); font-weight: 600;">Green</td><td>41</td></tr>
+      </table>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">3 papers · Total 65 topics</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top: 0; color: var(--maths);">Maths</h3>
+      <table style="margin: 0;">
+        <tr><td style="color: var(--red); font-weight: 600;">Red</td><td>1</td></tr>
+        <tr><td style="color: var(--amber); font-weight: 600;">Amber</td><td>19</td></tr>
+        <tr><td style="color: var(--green); font-weight: 600;">Green</td><td>51</td></tr>
+      </table>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">3 papers · Total 71 topics</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top: 0; color: var(--fm);">Further Maths</h3>
+      <table style="margin: 0;">
+        <tr><td style="color: var(--red); font-weight: 600;">Red</td><td>22</td></tr>
+        <tr><td style="color: var(--amber); font-weight: 600;">Amber</td><td>26</td></tr>
+        <tr><td style="color: var(--green); font-weight: 600;">Green</td><td>23</td></tr>
+      </table>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">3 papers · Total 71 topics</p>
+    </div>
+  </div>
+
+  <h2 class="underlined">Headline numbers</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Total topics</div>
+      <div class="stat-val">291</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Reds to fix</div>
+      <div class="stat-val">41</div>
+      <div class="stat-detail">14% of total</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Ambers to firm</div>
+      <div class="stat-val">92</div>
+      <div class="stat-detail">32% of total</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Greens (maintain)</div>
+      <div class="stat-val">158</div>
+      <div class="stat-detail">54% of total</div>
+    </div>
+  </div>
+
+  <h2 class="underlined">Key clusters</h2>
+
+  <div class="card-accent">
+    <strong>Econ labour market (3.1.6)</strong> — 5 of 7 topics red. Being treated as one project not five. Sessions Sat 18 – Sun 19 April.
+  </div>
+
+  <div class="card-accent">
+    <strong>Econ financial markets (3.2.4)</strong> — all 4 topics red. Treated as one project. Sessions Mon 27 – Wed 29 April.
+  </div>
+
+  <div class="card-accent">
+    <strong>FM Paper 3 Mechanics</strong> — 11 of 14 topics red. The binding constraint of the whole plan. Reactivation (not re-teaching) across ~12 sessions from early May onwards.
+  </div>
+
+  <h2 class="underlined">Past papers log</h2>
+
+  <div class="card-grey">
+    <p>Track marks as you complete timed papers. Compare score trajectory week-on-week to see whether the plan is working.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Paper</th><th>Series</th><th>Mark</th><th>%</th><th>Notes</th></tr>
+    </thead>
+    <tbody id="paper-log">
+      <tr><td>Sat 25 Apr</td><td>Econ Paper 1</td><td>—</td><td>—</td><td>—</td><td>First diagnostic</td></tr>
+      <tr><td>Sat 2 May</td><td>Econ Paper 1</td><td>—</td><td>—</td><td>—</td><td>Compare to Sat 25</td></tr>
+      <tr><td>Mon 4 May</td><td>Econ Paper 1</td><td>June 2024</td><td>—</td><td>—</td><td>Dress rehearsal</td></tr>
+      <tr><td>Fri 15 May</td><td>Econ Paper 2</td><td>—</td><td>—</td><td>—</td><td>Pre-P2 diagnostic</td></tr>
+      <tr><td>Wed 27 May</td><td>Maths Paper 1</td><td>—</td><td>—</td><td>—</td><td>First real diagnostic</td></tr>
+      <tr><td>Fri 29 May</td><td>FM Paper 2</td><td>—</td><td>—</td><td>—</td><td>Pre-exam diagnostic</td></tr>
+      <tr><td>Sun 31 May</td><td>Maths Paper 1</td><td>—</td><td>—</td><td>—</td><td>Progress check</td></tr>
+      <tr><td>Tue 9 Jun</td><td>Maths Paper 2</td><td>—</td><td>—</td><td>—</td><td>Pre-exam diagnostic</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic;">Fill in by hand on a print-out, or track in the xlsx tracker.</p>
+
+  <footer>
+    Baseline captured 18 April 2026. Re-rate topics in the xlsx tracker after diagnostic papers.
+  </footer>
+
+</div>
+
+</body>
+</html>

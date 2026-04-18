@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James's Revision · Exams</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="index.html">Today</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="packs/index.html">Study packs</a>
+      <a href="exams.html" class="active">Exams</a>
+      <a href="progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">All 13 papers · 11 May → 18 June</p>
+  <h1>Exam schedule</h1>
+  <p class="page-subtitle">Dates, times, rooms and seats</p>
+
+  <div id="exams-list"></div>
+
+  <footer>
+    Centre 46705 · James Platt · Candidate 4223
+  </footer>
+
+</div>
+
+<script src="assets/schedule.js"></script>
+<script>
+(function() {
+  const today = todayISO();
+  const list = document.getElementById('exams-list');
+
+  const allExams = [];
+  for (const wk of SCHEDULE) {
+    if (wk.exams) {
+      for (const ex of wk.exams) allExams.push(ex);
+    }
+  }
+  allExams.sort((a, b) => {
+    if (a.date !== b.date) return a.date.localeCompare(b.date);
+    return a.time.localeCompare(b.time);
+  });
+
+  let html = '';
+  for (const ex of allExams) {
+    const isPast = ex.date < today;
+    const isToday = ex.date === today;
+    const days = daysBetween(today, ex.date);
+
+    let badge = '';
+    if (isPast) badge = '<span style="color: var(--muted); font-size: 12px; font-style: italic;">Past</span>';
+    else if (isToday) badge = '<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 600;">TODAY</span>';
+    else badge = `<span style="color: var(--muted); font-size: 12px;">${days} days</span>`;
+
+    html += `
+      <div class="card" style="${isPast ? 'opacity: 0.55;' : ''}">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 8px;">
+          <div>
+            <div style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin-bottom: 2px;">${ex.name}</div>
+            <div style="color: var(--muted); font-size: 13px;">${formatDate(ex.date)} · ${ex.time} · ${ex.duration}</div>
+          </div>
+          <div>${badge}</div>
+        </div>
+        <div style="display: flex; gap: 20px; font-size: 13px; color: var(--ink); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line-soft);">
+          <span><strong>Room:</strong> ${ex.room}</span>
+          <span><strong>Seat:</strong> ${ex.seat}</span>
+        </div>
+      </div>
+    `;
+  }
+  list.innerHTML = html;
+})();
+</script>
+
+</body>
+</html>

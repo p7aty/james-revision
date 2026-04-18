@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James's Revision · Today</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="index.html" class="active">Today</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="packs/index.html">Study packs</a>
+      <a href="exams.html">Exams</a>
+      <a href="progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p class="eyebrow" id="today-eyebrow">Today</p>
+  <h1 id="today-heading">Today's session</h1>
+  <p class="page-subtitle" id="today-subtitle">Loading…</p>
+
+  <div class="stats" id="top-stats">
+    <!-- Rendered by JS -->
+  </div>
+
+  <div id="today-block">
+    <!-- Rendered by JS -->
+  </div>
+
+  <h2 class="underlined">This week</h2>
+  <div id="this-week">
+    <!-- Rendered by JS -->
+  </div>
+
+  <h2 class="underlined">Next exam</h2>
+  <div id="next-exam">
+    <!-- Rendered by JS -->
+  </div>
+
+  <footer>
+    Built for James · Summer 2026 A-Level revision · Updated daily
+  </footer>
+
+</div>
+
+<script src="assets/schedule.js"></script>
+<script>
+(function() {
+  const today = todayISO();
+  const result = findToday();
+
+  const eyebrow = document.getElementById('today-eyebrow');
+  const heading = document.getElementById('today-heading');
+  const subtitle = document.getElementById('today-subtitle');
+  const todayBlock = document.getElementById('today-block');
+  const statsBox = document.getElementById('top-stats');
+  const weekBlock = document.getElementById('this-week');
+  const examBlock = document.getElementById('next-exam');
+
+  const nextExam = findNextExam();
+  const daysToExam = nextExam ? daysBetween(today, nextExam.date) : null;
+  const lastExamDate = '2026-06-18';
+  const daysToEnd = daysBetween(today, lastExamDate);
+
+  statsBox.innerHTML = `
+    <div class="stat">
+      <div class="stat-label">Today</div>
+      <div class="stat-val">${formatDate(today)}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Next exam</div>
+      <div class="stat-val">${nextExam ? daysToExam + ' days' : '—'}</div>
+      <div class="stat-detail">${nextExam ? nextExam.name : 'Done!'}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Last exam</div>
+      <div class="stat-val">${daysToEnd >= 0 ? daysToEnd + ' days' : 'Done'}</div>
+      <div class="stat-detail">Maths P3 · Thu 18 Jun</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Papers done</div>
+      <div class="stat-val" id="papers-done">0 / 13</div>
+      <div class="stat-detail">Tracked by date</div>
+    </div>
+  `;
+
+  let done = 0;
+  for (const wk of SCHEDULE) {
+    if (wk.exams) {
+      for (const ex of wk.exams) {
+        if (ex.date < today) done++;
+      }
+    }
+  }
+  document.getElementById('papers-done').textContent = done + ' / 13';
+
+  if (result) {
+    const d = result.day;
+    eyebrow.textContent = d.phase || 'Today';
+    heading.textContent = formatDate(today);
+    subtitle.textContent = `${d.hours}h scheduled · ${d.tasks.length} task${d.tasks.length === 1 ? '' : 's'}`;
+
+    todayBlock.innerHTML = `
+      <div class="card" style="border-left: 4px solid var(--accent); padding: 18px 22px;">
+        ${renderTasks(d)}
+      </div>
+    `;
+  } else {
+    eyebrow.textContent = 'No scheduled session today';
+    heading.textContent = formatDate(today);
+    subtitle.textContent = 'Rest day or outside revision plan window.';
+    todayBlock.innerHTML = '';
+  }
+
+  if (result) {
+    let html = `<div class="week-header"><div class="week-title">${result.week.weekTitle}</div><div class="week-focus">${result.week.weekFocus}</div></div>`;
+    if (result.week.exams) {
+      for (const ex of result.week.exams) {
+        html += `<div class="exam"><span>⬤ ${formatDate(ex.date)} · ${ex.name} · ${ex.room} · Seat ${ex.seat}</span><span class="exam-time">${ex.time} · ${ex.duration}</span></div>`;
+      }
+    }
+    for (const day of result.week.days) {
+      const isToday = day.date === today;
+      const isPast = day.date < today;
+      const cls = isToday ? 'day today' : (isPast ? 'day past' : 'day');
+      const phaseHtml = day.phase ? `<span class="day-phase">${day.phase}</span>` : '';
+      html += `
+        <div class="${cls}">
+          <div class="day-date">${formatDate(day.date)}${phaseHtml}</div>
+          <div class="day-tasks">${renderTasks(day)}</div>
+          <div class="day-hrs">${day.hours}h</div>
+        </div>
+      `;
+    }
+    weekBlock.innerHTML = html;
+  }
+
+  if (nextExam) {
+    examBlock.innerHTML = `
+      <div class="exam">
+        <span>⬤ ${formatDate(nextExam.date)} · ${nextExam.name} · ${nextExam.room} · Seat ${nextExam.seat}</span>
+        <span class="exam-time">${nextExam.time} · ${nextExam.duration}</span>
+      </div>
+      <p style="color: var(--muted); font-size: 13px; margin-top: 4px;">${daysToExam} days away.</p>
+    `;
+  } else {
+    examBlock.innerHTML = '<p style="color: var(--muted);">All exams complete.</p>';
+  }
+})();
+</script>
+
+</body>
+</html>

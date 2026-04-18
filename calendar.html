@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James's Revision · Calendar</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="index.html">Today</a>
+      <a href="calendar.html" class="active">Calendar</a>
+      <a href="packs/index.html">Study packs</a>
+      <a href="exams.html">Exams</a>
+      <a href="progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p class="eyebrow">Master plan · 62 days · 13 papers</p>
+  <h1>Calendar</h1>
+  <p class="page-subtitle">Saturday 18 April → Thursday 18 June 2026</p>
+
+  <div class="legend">
+    <span class="legend-item"><span class="s s-econ">ECON</span>Economics</span>
+    <span class="legend-item"><span class="s s-math">MATH</span>Mathematics</span>
+    <span class="legend-item"><span class="s s-fm">FM</span>Further Maths</span>
+    <span class="legend-item"><span class="s s-pol">POL</span>Politics</span>
+  </div>
+
+  <div class="card-grey">
+    <strong>How this works.</strong> Each day below shows what's scheduled. Clickable tasks open their study pack. Today is highlighted. Past days appear faded.
+  </div>
+
+  <div id="calendar-block">
+    <!-- Rendered by JS -->
+  </div>
+
+  <footer>
+    Updated from the master plan · adjust when reality differs from paper
+  </footer>
+
+</div>
+
+<script src="assets/schedule.js"></script>
+<script>
+(function() {
+  const today = todayISO();
+  const cal = document.getElementById('calendar-block');
+
+  let html = '';
+  for (const week of SCHEDULE) {
+    html += `<div class="week"><div class="week-header"><div class="week-title">${week.weekTitle}</div><div class="week-focus">${week.weekFocus}</div></div>`;
+
+    const events = [];
+    for (const day of week.days) events.push({ type: 'day', date: day.date, data: day });
+    if (week.exams) {
+      for (const ex of week.exams) events.push({ type: 'exam', date: ex.date, data: ex });
+    }
+    events.sort((a, b) => {
+      if (a.date !== b.date) return a.date.localeCompare(b.date);
+      return a.type === 'exam' ? -1 : 1;
+    });
+
+    for (const ev of events) {
+      if (ev.type === 'exam') {
+        html += `<div class="exam"><span>⬤ ${formatDate(ev.date)} · ${ev.data.name} · ${ev.data.room} · Seat ${ev.data.seat}</span><span class="exam-time">${ev.data.time} · ${ev.data.duration}</span></div>`;
+      } else {
+        const d = ev.data;
+        const isToday = d.date === today;
+        const isPast = d.date < today;
+        const cls = isToday ? 'day today' : (isPast ? 'day past' : 'day');
+        const phaseHtml = d.phase ? `<span class="day-phase">${d.phase}</span>` : '';
+        html += `
+          <div class="${cls}">
+            <div class="day-date">${formatDate(d.date)}${phaseHtml}</div>
+            <div class="day-tasks">${renderTasks(d)}</div>
+            <div class="day-hrs">${d.hours}h</div>
+          </div>
+        `;
+      }
+    }
+    html += `</div>`;
+  }
+  cal.innerHTML = html;
+})();
+</script>
+
+</body>
+</html>
