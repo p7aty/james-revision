@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market structures 2 · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../papers/index.html">Papers</a>
+      <a href="../papers/questions.html">Questions</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Economics · 7136 · Paper 1 Microeconomics · Tue 21 Apr</p>
+  <h1>Market Structures — Part 2</h1>
+  <p class="page-subtitle">Monopolistic competition · Price discrimination · Creative destruction · Contestability</p>
+
+  <div class="card-yellow">
+    <strong>2-hour session structure</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>5 min</strong> — Warm-up: whatever you got wrong on Monday's market structures 1 retrieval.</li>
+      <li><strong>30 min</strong> — Monopolistic competition (3.1.5.4). SR and LR diagrams — same shape as monopoly SR, then tangency in LR.</li>
+      <li><strong>25 min</strong> — Price discrimination (3.1.5.7). Three-panel 3rd degree diagram; conditions required.</li>
+      <li><strong>30 min</strong> — Creative destruction (3.1.5.8) [RED]. Schumpeter's argument; dynamic efficiency case for some monopoly power.</li>
+      <li><strong>20 min</strong> — Contestability (3.1.5.9). Sunk costs, hit-and-run entry, why market <em>threat</em> matters more than market <em>share</em>.</li>
+      <li><strong>10 min</strong> — Retrieval test.</li>
+    </ol>
+  </div>
+
+  <h2 class="underlined">Section 3.1.5.4 — Monopolistic competition</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The formal diagrammatic analysis of the monopolistically competitive model in the short and long run. The main characteristics of monopolistically competitive markets. Monopolistically competitive markets will be subject to non-price competition.
+  </div>
+
+  <h3>Characteristics</h3>
+  <ul>
+    <li><strong>Many firms</strong> — enough that no one dominates</li>
+    <li><strong>Differentiated products</strong> — close substitutes but not identical (branding, quality, location)</li>
+    <li><strong>Free entry and exit</strong> in the long run</li>
+    <li><strong>Some price-setting power</strong> — downward-sloping firm demand curve (unlike PC)</li>
+    <li><strong>Non-price competition is central</strong> — advertising, branding, packaging, loyalty schemes</li>
+  </ul>
+
+  <p>Classic examples: hairdressers, independent restaurants, takeaway coffee chains, gyms, local plumbers. Product is broadly the same but differentiated enough that each firm faces its own demand curve.</p>
+
+  <h3>Short-run: looks like a mini-monopoly</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mc-sr-title">
+      <title id="mc-sr-title">Monopolistic competition short-run</title>
+
+      <line x1="60" y1="20" x2="60" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="260" x2="460" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="25" class="svg-axis-label">£</text>
+      <text x="335" y="285" class="svg-axis-label">Quantity</text>
+
+      <!-- AR downward sloping -->
+      <line x1="90" y1="60" x2="420" y2="250" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="425" y="250" class="svg-curve-label">AR=D</text>
+
+      <!-- MR steeper, below AR, same intercept -->
+      <line x1="90" y1="60" x2="300" y2="250" stroke="#4a7c2a" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="305" y="250" class="svg-curve-label" style="fill: #4a7c2a;">MR</text>
+
+      <!-- MC rising -->
+      <path d="M 85 220 Q 150 180 220 120 L 280 70" stroke="#b8410f" stroke-width="2.5" fill="none"/>
+      <text x="285" y="72" class="svg-curve-label" style="fill: #b8410f;">MC</text>
+
+      <!-- ATC U-shaped -->
+      <path d="M 85 230 Q 140 180 200 155 Q 250 155 290 175 L 300 190" stroke="#6b2e8c" stroke-width="2" fill="none"/>
+      <text x="305" y="185" class="svg-curve-label" style="fill: #6b2e8c;">ATC</text>
+
+      <!-- MC = MR: estimate at x=200 -->
+      <!-- MR: 60 + (250-60)/(300-90)*(x-90) = 60 + 0.905(x-90) -->
+      <!-- MC at x=200 from curve is roughly y=140. 60+0.905(110)=60+99.5=159.5. Let's target: MC = MR happens somewhere where curves cross -->
+      <!-- Profit max Q point: approx (180, 145) -->
+      <circle cx="180" cy="145" r="4" fill="#1a1a1a"/>
+      <line x1="180" y1="145" x2="180" y2="260" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="172" y="278" class="svg-label" style="font-weight: 600;">Q*</text>
+
+      <!-- Price from AR at Q* -->
+      <!-- AR: y = 60 + 190/330*(x-90) = 60 + 0.576(x-90) -->
+      <!-- at x=180: y = 60 + 51.8 = 112 -->
+      <circle cx="180" cy="112" r="4" fill="#1a1a1a"/>
+      <line x1="60" y1="112" x2="180" y2="112" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="117" class="svg-label" style="font-weight: 600;">P*</text>
+
+      <!-- ATC at Q* (below P* = profit) -->
+      <circle cx="180" cy="158" r="4" fill="#1a1a1a"/>
+      <line x1="60" y1="158" x2="180" y2="158" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="163" class="svg-label" style="font-weight: 600; font-size: 11px;">ATC*</text>
+
+      <!-- Profit rectangle -->
+      <rect x="60" y="112" width="120" height="46" fill="#dce7f2" opacity="0.4"/>
+      <text x="100" y="138" class="svg-label" style="fill: #4a7c2a; font-weight: 600;">profit</text>
+    </svg>
+    <p class="diagram-caption">SR equilibrium: MC = MR sets Q*, price read from AR curve. Price above ATC gives abnormal profit — just like monopoly.</p>
+  </div>
+
+  <h3>Long-run: entry erodes profit to a tangency</h3>
+
+  <p>Free entry means abnormal profit attracts new firms. As more firms enter, each existing firm's share of demand shrinks — AR shifts <strong>left</strong>. This continues until AR is just tangent to ATC at the profit-maximising output. At that point, P = ATC, so only normal profit is earned and entry stops.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mc-lr-title">
+      <title id="mc-lr-title">Monopolistic competition long-run equilibrium</title>
+
+      <line x1="60" y1="20" x2="60" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="60" y1="260" x2="460" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="20" y="25" class="svg-axis-label">£</text>
+      <text x="335" y="285" class="svg-axis-label">Quantity</text>
+
+      <!-- AR shifted left (smaller share) -->
+      <line x1="80" y1="70" x2="340" y2="240" stroke="#1e5b8c" stroke-width="2.5"/>
+      <text x="345" y="240" class="svg-curve-label">AR=D</text>
+
+      <!-- MR steeper -->
+      <line x1="80" y1="70" x2="220" y2="240" stroke="#4a7c2a" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="225" y="240" class="svg-curve-label" style="fill: #4a7c2a;">MR</text>
+
+      <!-- MC rising -->
+      <path d="M 85 210 Q 140 165 190 120 L 250 75" stroke="#b8410f" stroke-width="2.5" fill="none"/>
+      <text x="255" y="78" class="svg-curve-label" style="fill: #b8410f;">MC</text>
+
+      <!-- ATC tangent to AR somewhere on falling part -->
+      <!-- ATC at tangent point must equal AR, and ATC slope must equal AR slope -->
+      <!-- Pick tangency at (160, 130) -->
+      <path d="M 80 190 Q 120 155 160 130 Q 200 125 250 145 L 270 170" stroke="#6b2e8c" stroke-width="2" fill="none"/>
+      <text x="275" y="160" class="svg-curve-label" style="fill: #6b2e8c;">ATC</text>
+
+      <!-- MC = MR point -->
+      <circle cx="160" cy="130" r="4" fill="#1a1a1a"/>
+      <line x1="160" y1="130" x2="160" y2="260" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="152" y="278" class="svg-label" style="font-weight: 600;">Q*</text>
+      <line x1="60" y1="130" x2="160" y2="130" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="135" class="svg-label" style="font-weight: 600;">P*=ATC</text>
+
+      <text x="180" y="105" class="svg-label" style="font-size: 11.5px; font-style: italic;">AR tangent to ATC</text>
+      <text x="180" y="118" class="svg-label" style="font-size: 11.5px; font-style: italic;">Normal profit only</text>
+    </svg>
+    <p class="diagram-caption">LR equilibrium: AR tangent to ATC at Q*. Note the tangent is on the <em>downward-sloping</em> part of ATC — so Q* is below the cost-minimising output. Firm has excess capacity.</p>
+  </div>
+
+  <h3>Two critical efficiency results</h3>
+
+  <div class="card">
+    <p>In long-run monopolistic competition equilibrium:</p>
+    <ul>
+      <li><strong>P &gt; MC</strong> — firms sell at a price above marginal cost. <strong>Not allocatively efficient.</strong></li>
+      <li><strong>P &gt; minimum ATC</strong> — tangency is on the downward-sloping part of ATC, not at its minimum. <strong>Not productively efficient.</strong> Firms operate with "excess capacity" — they could make more at lower per-unit cost but choose not to.</li>
+    </ul>
+    <p style="margin-top: 8px;">This is the exact 15-mark question from 2023 P1 Q5: "Explain why, in long-run equilibrium, monopolistically competitive markets are neither productively nor allocatively efficient." Both results fall straight out of the diagram.</p>
+  </div>
+
+  <div class="examiner">
+    <strong>Defence of monop comp.</strong> The inefficiency is the price consumers pay for <em>variety</em>. A PC world has identical products and no choice. Monop comp gives differentiation, brands, innovation in product design — arguably worth the efficiency loss. Examiners reward this nuance.
+  </div>
+
+  <h2 class="underlined">Section 3.1.5.7 — Price discrimination</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The conditions necessary for price discrimination. The advantages and disadvantages of price discrimination. A diagrammatic analysis of price discrimination is expected.
+  </div>
+
+  <h3>Definition and the three degrees</h3>
+
+  <p><span class="key-term">Price discrimination</span> is charging different prices to different consumers for the same good, where the price differences do not reflect cost differences. Note: different prices due to different costs (e.g. overseas shipping) is not price discrimination.</p>
+
+  <table>
+    <thead>
+      <tr><th>Degree</th><th>Description</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1st degree (perfect)</td>
+        <td>Each unit sold at the maximum price each buyer is willing to pay. Captures all consumer surplus.</td>
+        <td>Auctions; personalised pricing with full data on WTP (rare).</td>
+      </tr>
+      <tr>
+        <td>2nd degree</td>
+        <td>Different prices per unit depending on quantity purchased. Bulk discounts.</td>
+        <td>Buy one get one free, utility tariff structures.</td>
+      </tr>
+      <tr>
+        <td>3rd degree</td>
+        <td>Different prices to identifiably different groups with different elasticities.</td>
+        <td>Student discounts, peak vs off-peak rail fares, cinema age rates.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>3rd degree is the one AQA examiners want you to diagram. Learn that case.</p>
+
+  <h3>Conditions required</h3>
+  <ol>
+    <li><strong>Market power</strong> — firm must be a price-maker (not PC, but can have any degree of monopoly power)</li>
+    <li><strong>Different elasticities of demand</strong> across identifiable consumer groups (age, time, location, etc.)</li>
+    <li><strong>Ability to separate markets</strong> — verify who's who (student ID, time of day)</li>
+    <li><strong>No resale</strong> — consumers in the low-price market must not be able to resell to the high-price market (arbitrage would destroy the discrimination)</li>
+  </ol>
+
+  <h3>3rd degree diagram</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pd-title">
+      <title id="pd-title">Third degree price discrimination</title>
+
+      <!-- Panel 1: inelastic (high price) market -->
+      <g transform="translate(10, 10)">
+        <line x1="40" y1="20" x2="40" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="40" y1="260" x2="220" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+        <text x="10" y="20" class="svg-axis-label" style="font-size: 11px;">£</text>
+        <text x="155" y="280" class="svg-axis-label" style="font-size: 11px;">Quantity</text>
+
+        <!-- Steep (inelastic) AR -->
+        <line x1="60" y1="40" x2="200" y2="250" stroke="#1e5b8c" stroke-width="2"/>
+        <text x="205" y="250" class="svg-curve-label" style="font-size: 10px;">AR₁</text>
+
+        <!-- MR steeper -->
+        <line x1="60" y1="40" x2="130" y2="250" stroke="#4a7c2a" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <text x="105" y="235" class="svg-curve-label" style="font-size: 10px; fill: #4a7c2a;">MR₁</text>
+
+        <!-- Horizontal MC (assume constant same in both markets) -->
+        <line x1="40" y1="180" x2="210" y2="180" stroke="#b8410f" stroke-width="2"/>
+        <text x="215" y="183" class="svg-curve-label" style="font-size: 10px; fill: #b8410f;">MC</text>
+
+        <!-- MR = MC at Q1 -->
+        <circle cx="100" cy="180" r="3" fill="#1a1a1a"/>
+        <line x1="100" y1="180" x2="100" y2="260" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="92" y="278" class="svg-label" style="font-size: 11px; font-weight: 600;">Q₁</text>
+
+        <!-- P from AR at Q1 -->
+        <circle cx="100" cy="100" r="3" fill="#1a1a1a"/>
+        <line x1="40" y1="100" x2="100" y2="100" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="15" y="104" class="svg-label" style="font-size: 11px; font-weight: 600;">P₁</text>
+
+        <text x="55" y="15" class="svg-axis-label" style="font-size: 11px; font-weight: 600;">Market 1 (inelastic)</text>
+      </g>
+
+      <!-- Panel 2: elastic (low price) market -->
+      <g transform="translate(250, 10)">
+        <line x1="40" y1="20" x2="40" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="40" y1="260" x2="220" y2="260" stroke="#1a1a1a" stroke-width="1.5"/>
+        <text x="10" y="20" class="svg-axis-label" style="font-size: 11px;">£</text>
+        <text x="155" y="280" class="svg-axis-label" style="font-size: 11px;">Quantity</text>
+
+        <!-- Flatter (elastic) AR -->
+        <line x1="60" y1="120" x2="210" y2="250" stroke="#1e5b8c" stroke-width="2"/>
+        <text x="215" y="250" class="svg-curve-label" style="font-size: 10px;">AR₂</text>
+
+        <!-- MR steeper -->
+        <line x1="60" y1="120" x2="140" y2="250" stroke="#4a7c2a" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <text x="118" y="245" class="svg-curve-label" style="font-size: 10px; fill: #4a7c2a;">MR₂</text>
+
+        <!-- Horizontal MC (same value) -->
+        <line x1="40" y1="180" x2="210" y2="180" stroke="#b8410f" stroke-width="2"/>
+        <text x="215" y="183" class="svg-curve-label" style="font-size: 10px; fill: #b8410f;">MC</text>
+
+        <!-- MR = MC at Q2 (larger Q) -->
+        <circle cx="130" cy="180" r="3" fill="#1a1a1a"/>
+        <line x1="130" y1="180" x2="130" y2="260" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="122" y="278" class="svg-label" style="font-size: 11px; font-weight: 600;">Q₂</text>
+
+        <!-- P from AR at Q2 (lower price) -->
+        <!-- AR: y = 120 + 130/150 * (x-60) = 120 + 0.867(x-60) -->
+        <!-- at x=130: y = 120 + 0.867*70 = 180.7... Hmm that sits on the line. Let me check -->
+        <!-- Actually I placed AR and P to cross near MC so re-fix by picking Q2 = 110 instead -->
+        <circle cx="110" cy="163" r="3" fill="#1a1a1a"/>
+        <line x1="40" y1="163" x2="110" y2="163" stroke="#6b6b66" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="15" y="167" class="svg-label" style="font-size: 11px; font-weight: 600;">P₂</text>
+
+        <text x="55" y="15" class="svg-axis-label" style="font-size: 11px; font-weight: 600;">Market 2 (elastic)</text>
+      </g>
+
+      <!-- Summary panel -->
+      <g transform="translate(490, 10)">
+        <rect x="20" y="20" width="210" height="240" fill="#fdfbf5" stroke="#e8e4d0" stroke-width="1" rx="4"/>
+        <text x="40" y="50" class="svg-axis-label" style="font-size: 12px; font-weight: 700;">Key result</text>
+        <text x="40" y="80" class="svg-axis-label" style="font-size: 12px;">P₁ &gt; P₂</text>
+        <text x="40" y="100" class="svg-axis-label" style="font-size: 11px; fill: #6b6b66;">Inelastic market</text>
+        <text x="40" y="115" class="svg-axis-label" style="font-size: 11px; fill: #6b6b66;">pays more</text>
+
+        <text x="40" y="155" class="svg-axis-label" style="font-size: 12px; font-weight: 700;">Rule:</text>
+        <text x="40" y="180" class="svg-axis-label" style="font-size: 11px;">MC = MR₁ = MR₂</text>
+        <text x="40" y="200" class="svg-axis-label" style="font-size: 10.5px; fill: #6b6b66;">Split output between</text>
+        <text x="40" y="215" class="svg-axis-label" style="font-size: 10.5px; fill: #6b6b66;">markets so MR is</text>
+        <text x="40" y="230" class="svg-axis-label" style="font-size: 10.5px; fill: #6b6b66;">equal in both</text>
+      </g>
+    </svg>
+    <p class="diagram-caption">The firm sets MR = MC separately in each market. Because AR₁ is less elastic, the mark-up over MC is larger — P₁ &gt; P₂. Same good, different prices.</p>
+  </div>
+
+  <h3>Advantages vs disadvantages</h3>
+
+  <div class="two-col">
+    <div class="col-box">
+      <h4>Advantages</h4>
+      <ul>
+        <li>Firm captures more consumer surplus → higher profit → funds investment / R&amp;D</li>
+        <li>Allows access for low-income groups (student rail fares, off-peak cinema)</li>
+        <li>Can enable uniform service provision (cross-subsidy: business-class funds economy)</li>
+        <li>Output often higher than under single-price monopoly</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>Disadvantages</h4>
+      <ul>
+        <li>Loss of consumer surplus (inelastic group pays more)</li>
+        <li>Inequality — those with inelastic demand (often the least mobile, least informed) pay most</li>
+        <li>Anti-competitive when used as predatory pricing</li>
+        <li>Requires market segmentation — creates admin/surveillance costs</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="underlined" style="color: var(--red);">Section 3.1.5.8 — Creative destruction [RED]</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    Both the short-run and long-run benefits which are likely to result from competition. That firms do not just compete on the basis of price but that competition will, for example, also lead firms to strive to improve products, reduce costs, improve the quality of the service provided. The process of creative destruction.
+  </div>
+
+  <h3>Schumpeter's central argument</h3>
+
+  <p>Joseph Schumpeter (1942) challenged the traditional view that monopoly is bad. He argued that the <em>most important</em> form of competition isn't price competition but <strong>innovation competition</strong> — and that innovation requires abnormal profit to fund R&amp;D.</p>
+
+  <div class="card">
+    <p><strong>The Schumpeterian story.</strong></p>
+    <ol>
+      <li>A firm innovates — new product, new process, new business model.</li>
+      <li>It temporarily dominates the market and earns abnormal profit.</li>
+      <li>That profit attracts imitators and next-generation innovators.</li>
+      <li>A new innovation makes the previous one obsolete — the old firm is destroyed.</li>
+      <li>Cycle repeats. The economy is continuously renewed.</li>
+    </ol>
+    <p style="margin-top: 8px;">"The perennial gale of creative destruction" — his phrase for this churn. Today's monopolist is tomorrow's has-been.</p>
+  </div>
+
+  <h3>Real-world examples</h3>
+
+  <ul>
+    <li><strong>Nokia</strong> dominated mobile phones in the 2000s. Apple's iPhone (2007) and Android ecosystem destroyed that position within 5 years.</li>
+    <li><strong>Blockbuster</strong> had ~9,000 stores and seemed unassailable. Netflix streaming obliterated the business model.</li>
+    <li><strong>Kodak</strong> invented digital photography but protected its film business — Canon, Nikon, and smartphones destroyed Kodak.</li>
+    <li><strong>Newspapers</strong> — classified ads were the cash cow; Craigslist and Facebook took them; most regional UK papers have closed or shrunk dramatically.</li>
+    <li><strong>Taxis</strong> — licensed duopolies destroyed by Uber / Lyft.</li>
+    <li><strong>Video rental, travel agents, high-street banks, DVD sales, terrestrial TV...</strong></li>
+  </ul>
+
+  <h3>Implications for market structure policy</h3>
+
+  <p>If Schumpeter is right, the traditional efficiency analysis of monopoly misses the point. Yes, a monopolist may be allocatively inefficient <em>in a snapshot</em>. But if monopoly profits fund R&amp;D, and if that R&amp;D gets disrupted by the next innovator anyway, the <em>dynamic</em> benefits may outweigh the static losses.</p>
+
+  <p>This reframes competition policy: the question isn't "does this firm have high market share?" — it's "is this firm still contestable by new innovators?". A tech giant with 95% market share might be fine if a startup could take it down in five years. A regulated utility with 40% market share might not be.</p>
+
+  <div class="examiner">
+    <strong>Exam use.</strong> Creative destruction is a classic evaluation point in any essay about monopoly, competition policy, or market failure. Use it as the "but actually, maybe monopoly is good because..." counter to the standard PC-is-best argument. Always pair with a real-world example.
+  </div>
+
+  <h3>Limitations of the Schumpeter view</h3>
+
+  <ul>
+    <li><strong>Some monopolies aren't contestable</strong> — natural monopolies (water, rail infrastructure), network effects (social media lock-in), regulatory barriers.</li>
+    <li><strong>Abnormal profit doesn't guarantee R&amp;D</strong> — can be extracted as dividends, share buybacks, CEO pay.</li>
+    <li><strong>Too much creative destruction is costly</strong> — stranded workers, wasted capital, regional decline. See: northern UK mill towns, US rust belt.</li>
+    <li><strong>Innovation can entrench monopoly</strong> — big data / network effects mean the tech winner can block the next innovator (e.g. Google buying competitors early).</li>
+  </ul>
+
+  <h2 class="underlined">Section 3.1.5.9 — Contestable markets</h2>
+
+  <div class="spec-box">
+    <div class="spec-ref">AQA spec requirement</div>
+    The significance of market contestability for the performance of an industry. Concepts such as sunk costs and hit-and-run competition.
+  </div>
+
+  <h3>The Baumol insight (1982)</h3>
+
+  <p>William Baumol's contestable markets theory says <strong>it's the threat of entry, not actual entry, that disciplines firm behaviour</strong>. A firm with 100% market share will still behave competitively if new firms could enter quickly at low cost.</p>
+
+  <p>A <strong>perfectly contestable market</strong> has:</p>
+  <ul>
+    <li><strong>No barriers to entry or exit</strong></li>
+    <li><strong>Zero sunk costs</strong> — all investments can be recovered on exit</li>
+    <li><strong>Equal access to technology</strong> for incumbents and entrants</li>
+  </ul>
+
+  <h3>Sunk costs — the key barrier</h3>
+
+  <p>A <span class="key-term">sunk cost</span> is a cost incurred that cannot be recovered on exit. Examples: specialised machinery that has no resale value, advertising spend, regulatory approval fees, bespoke software. High sunk costs deter entry — even if profit is high, the entrant risks losing the entry cost if the incumbent drops prices and forces exit.</p>
+
+  <h3>Hit-and-run competition</h3>
+
+  <p>In a perfectly contestable market, if the incumbent charges high prices an entrant can <strong>enter, undercut, take profit, and exit before the incumbent reacts</strong>. Because exit is costless, this threat alone forces the incumbent to price near normal profit levels.</p>
+
+  <div class="card">
+    <p><strong>Classic real-world example: budget airlines on short-haul routes.</strong></p>
+    <p>A legacy carrier with dominant position on a route can't just raise prices — EasyJet or Ryanair can add a plane tomorrow and compete. Aircraft leases are reversible. The threat keeps legacy prices down even where market share is concentrated.</p>
+  </div>
+
+  <h3>Policy implications</h3>
+  <ul>
+    <li><strong>Focus on lowering entry/exit barriers</strong>, not just breaking up market shares.</li>
+    <li><strong>Deregulation may help</strong> — removing licensing requirements, regulatory barriers.</li>
+    <li><strong>Policy can increase contestability</strong>: airport slot allocation rules, number portability in mobile, open-banking data sharing.</li>
+  </ul>
+
+  <h3>Limits of the theory</h3>
+  <ul>
+    <li>Perfect contestability is rare — most industries have <em>some</em> sunk costs</li>
+    <li>Incumbents have information advantages (customer data, supplier relationships)</li>
+    <li>Brand loyalty and switching costs reduce hit-and-run viability</li>
+    <li>Predatory pricing laws deter entry if incumbents can credibly threaten retaliation</li>
+  </ul>
+
+  <h2 class="underlined">Two-minute summary</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>Monop comp (LR):</strong> AR tangent to ATC on its downward slope. P &gt; MC (not allocatively efficient), P &gt; min ATC (not productively efficient). Excess capacity.</li>
+      <li><strong>Price discrimination:</strong> need market power + different elasticities + separable markets + no resale. P highest where demand most inelastic. Rule: MC = MR₁ = MR₂.</li>
+      <li><strong>Creative destruction [RED]:</strong> Schumpeter — innovation competition is more important than price competition. Monopoly profits fund R&amp;D; dynamic efficiency may outweigh static inefficiency. Real examples: Nokia → Apple, Blockbuster → Netflix.</li>
+      <li><strong>Contestability:</strong> threat of entry matters more than current competitors. Low sunk costs enable hit-and-run entry. Focus policy on removing barriers, not just shares.</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Past paper practice</h2>
+
+  <div class="card" style="border-left: 3px solid var(--accent);">
+    <p style="margin-bottom: 8px;"><strong>Try one of these at the end.</strong></p>
+
+    <div style="margin: 14px 0; padding: 10px 12px; background: #fdfbf5; border-radius: 3px;">
+      <p style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">Monop comp LR efficiency (15 marks · ~25 min)</p>
+      <p style="font-style: italic; font-size: 13px; margin-bottom: 6px;">"Explain why, in long-run equilibrium, monopolistically competitive markets are neither productively nor allocatively efficient."</p>
+      <p style="font-size: 11.5px; color: var(--muted); margin-bottom: 6px;">Econ 2023 Paper 1 · Tests 3.1.5.4 + 3.1.5.10. Exact match for today's pack.</p>
+      <div style="display: flex; gap: 6px;">
+        <a href="../papers/econ/2023/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">QP</a>
+        <a href="../papers/econ/2023/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">MS</a>
+      </div>
+    </div>
+
+    <div style="margin: 14px 0; padding: 10px 12px; background: #fdfbf5; border-radius: 3px;">
+      <p style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">Supermarket competition (25 marks · ~40 min)</p>
+      <p style="font-style: italic; font-size: 13px; margin-bottom: 6px;">"Evaluate the view that the supermarket sector is serving customers' interests well."</p>
+      <p style="font-size: 11.5px; color: var(--muted); margin-bottom: 6px;">Econ 2022 Paper 1. Good practice for creative destruction (Aldi/Lidl) and contestability (big four market share vs discounter threat).</p>
+      <div style="display: flex; gap: 6px;">
+        <a href="../papers/econ/2022/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">QP</a>
+        <a href="../papers/econ/2022/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">MS</a>
+      </div>
+    </div>
+
+    <p style="margin-top: 10px; font-size: 12px;"><a href="../papers/questions.html">More questions filtered by topic →</a></p>
+  </div>
+
+  <h2 class="underlined">Retrieval test</h2>
+
+  <div class="card-green retrieval">
+    <ol>
+      <li>List four characteristics of monopolistically competitive markets. <span class="answer-space"></span></li>
+      <li>Why is monop comp LR equilibrium not productively efficient? Why is it not allocatively efficient? Use the tangency point to explain. <span class="answer-space"></span></li>
+      <li>Sketch the LR monop comp diagram. Label Q*, P*, and show the tangency.</li>
+      <li>State the four conditions needed for price discrimination to work. <span class="answer-space"></span></li>
+      <li>Distinguish between 1st, 2nd, and 3rd degree price discrimination with one example each. <span class="answer-space"></span></li>
+      <li>Sketch the 3rd degree price discrimination diagram with two markets. Which group pays the higher price? <span class="answer-space"></span></li>
+      <li>Explain Schumpeter's creative destruction in your own words. Give three real-world examples of it. <span class="answer-space"></span></li>
+      <li>Why does creative destruction complicate the traditional efficiency case against monopoly? <span class="answer-space"></span></li>
+      <li>Define sunk costs. Give three examples. Why do sunk costs deter entry? <span class="answer-space"></span></li>
+      <li>Explain hit-and-run competition. Why does it discipline incumbents even without actual entry? <span class="answer-space"></span></li>
+      <li>Contrast allocative efficiency in PC, monop comp, and monopoly at long-run equilibrium. <span class="answer-space"></span></li>
+    </ol>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-market-structures-1.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Yesterday</div>
+      Market structures 1
+    </a>
+    <a href="fm-maclaurin.html" class="pack-nav-next">
+      <div class="pack-nav-label">Also today →</div>
+      FM Maclaurin series
+    </a>
+  </div>
+
+  <footer>
+    AQA Economics 7136 · Sections 3.1.5.4, 3.1.5.7, 3.1.5.8, 3.1.5.9 · Tue 21 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>

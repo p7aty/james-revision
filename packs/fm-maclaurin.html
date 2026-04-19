@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maclaurin series · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .formula-block {
+    background: #f5f3eb;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    text-align: center;
+  }
+  .formula-block.big { font-size: 17px; padding: 14px 18px; }
+  sup { font-size: 0.75em; vertical-align: super; }
+  sub { font-size: 0.75em; vertical-align: sub; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../papers/index.html">Papers</a>
+      <a href="../papers/questions.html">Questions</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Further Maths · 7367 · Core Pure · Tue 21 Apr</p>
+  <h1>Maclaurin Series</h1>
+  <p class="page-subtitle">Power series expansions · Standard results · Range of validity</p>
+
+  <div class="card-yellow">
+    <strong>Session plan — RED topic</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>10 min</strong> — Watch ExamSolutions Maclaurin intro (or equivalent).</li>
+      <li><strong>15 min</strong> — Learn the general formula and the 4 standard series cold.</li>
+      <li><strong>30 min</strong> — Work through the three examples below.</li>
+      <li><strong>20 min</strong> — Practice problems at bottom.</li>
+    </ol>
+    <p style="margin-top: 10px; font-size: 12.5px;"><strong>These four series are in the formula booklet</strong>, but you still need to know them cold — exam questions frequently test manipulating and combining them under time pressure, and flipping to the booklet every time costs marks.</p>
+  </div>
+
+  <h2 class="underlined">The core formula</h2>
+
+  <p>A Maclaurin series is the Taylor series of a function expanded around x = 0. It expresses f(x) as an infinite polynomial in powers of x.</p>
+
+  <div class="formula-block big">
+    f(x) = f(0) + f'(0)·x + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">f''(0)</span><br><span style="padding: 0 6px;">2!</span></span>·x<sup>2</sup> + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">f'''(0)</span><br><span style="padding: 0 6px;">3!</span></span>·x<sup>3</sup> + ... + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">f<sup>(n)</sup>(0)</span><br><span style="padding: 0 6px;">n!</span></span>·x<sup>n</sup> + ...
+  </div>
+
+  <p><strong>To build a Maclaurin series from scratch:</strong></p>
+  <ol>
+    <li>Differentiate f(x) several times.</li>
+    <li>Evaluate each derivative at x = 0.</li>
+    <li>Divide the nth derivative at 0 by n! and multiply by x<sup>n</sup>.</li>
+    <li>Sum the terms.</li>
+  </ol>
+
+  <div class="examiner">
+    <strong>Requirement for the series to exist:</strong> all derivatives f<sup>(n)</sup>(0) must exist (be finite). That's why you can't Maclaurin-expand ln(x) at x = 0 — ln(0) is undefined. Instead, expand ln(1 + x) which is defined and well-behaved at x = 0.
+  </div>
+
+  <h2 class="underlined">The four standard series — memorise cold</h2>
+
+  <h3>1. Exponential: e<sup>x</sup></h3>
+
+  <div class="formula-block big">
+    e<sup>x</sup> = 1 + x + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>2</sup></span><br><span style="padding: 0 6px;">2!</span></span> + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>3</sup></span><br><span style="padding: 0 6px;">3!</span></span> + ... + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>n</sup></span><br><span style="padding: 0 6px;">n!</span></span> + ...
+  </div>
+
+  <p><strong>Why:</strong> every derivative of e<sup>x</sup> is e<sup>x</sup>, which equals 1 at x = 0. So every coefficient is 1/n!</p>
+  <p><strong>Range of validity:</strong> all real x. Converges everywhere.</p>
+
+  <h3>2. Logarithm: ln(1 + x)</h3>
+
+  <div class="formula-block big">
+    ln(1 + x) = x − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>2</sup></span><br><span style="padding: 0 6px;">2</span></span> + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>3</sup></span><br><span style="padding: 0 6px;">3</span></span> − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>4</sup></span><br><span style="padding: 0 6px;">4</span></span> + ... + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">(−1)<sup>n+1</sup>x<sup>n</sup></span><br><span style="padding: 0 6px;">n</span></span> + ...
+  </div>
+
+  <p><strong>Key features:</strong> alternating signs starting positive; denominators are just n (no factorial). Much slower convergence than e<sup>x</sup>.</p>
+  <p><strong>Range of validity:</strong> −1 &lt; x ≤ 1. Critical point: it FAILS for x ≤ −1 (where ln is undefined) and is only borderline-valid at x = 1.</p>
+
+  <h3>3. Sine: sin x</h3>
+
+  <div class="formula-block big">
+    sin x = x − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>3</sup></span><br><span style="padding: 0 6px;">3!</span></span> + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>5</sup></span><br><span style="padding: 0 6px;">5!</span></span> − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>7</sup></span><br><span style="padding: 0 6px;">7!</span></span> + ... + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">(−1)<sup>n</sup>x<sup>2n+1</sup></span><br><span style="padding: 0 6px;">(2n+1)!</span></span> + ...
+  </div>
+
+  <p><strong>Key features:</strong> only odd powers of x (because sin is odd). Alternating signs. Denominators are odd factorials.</p>
+  <p><strong>Range of validity:</strong> all real x. Converges everywhere.</p>
+
+  <h3>4. Cosine: cos x</h3>
+
+  <div class="formula-block big">
+    cos x = 1 − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>2</sup></span><br><span style="padding: 0 6px;">2!</span></span> + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>4</sup></span><br><span style="padding: 0 6px;">4!</span></span> − <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">x<sup>6</sup></span><br><span style="padding: 0 6px;">6!</span></span> + ... + <span style="display: inline-block; vertical-align: middle;"><span style="border-bottom: 1px solid #1a1a1a; padding: 0 6px;">(−1)<sup>n</sup>x<sup>2n</sup></span><br><span style="padding: 0 6px;">(2n)!</span></span> + ...
+  </div>
+
+  <p><strong>Key features:</strong> only even powers of x (cos is even). Alternating signs starting from +1. Denominators are even factorials.</p>
+  <p><strong>Range of validity:</strong> all real x. Converges everywhere.</p>
+
+  <div class="card-grey">
+    <p><strong>Pattern to memorise:</strong></p>
+    <ul>
+      <li>sin and cos alternate odd/even powers.</li>
+      <li>cos = derivative of sin shifted — and you can check this: differentiate the sin series term-by-term to get the cos series.</li>
+      <li>e<sup>x</sup>, sin, cos all have factorial denominators. ln(1+x) does NOT (just n).</li>
+      <li>All three trig and exp series converge for ALL x. Only ln is restricted.</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Worked example 1 — derive a series from scratch</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find the first four non-zero terms of the Maclaurin series for f(x) = (1 + x)<sup>1/2</sup>.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Differentiate repeatedly, evaluate at x = 0.</p>
+    <table style="width: 100%; margin-top: 8px; font-size: 13.5px;">
+      <tr><th>n</th><th>f<sup>(n)</sup>(x)</th><th>f<sup>(n)</sup>(0)</th><th>Term</th></tr>
+      <tr><td>0</td><td>(1+x)<sup>1/2</sup></td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>½(1+x)<sup>−1/2</sup></td><td>½</td><td>(½)x = x/2</td></tr>
+      <tr><td>2</td><td>−¼(1+x)<sup>−3/2</sup></td><td>−¼</td><td>(−¼/2!)x² = −x²/8</td></tr>
+      <tr><td>3</td><td>⅜(1+x)<sup>−5/2</sup></td><td>⅜</td><td>(⅜/3!)x³ = x³/16</td></tr>
+      <tr><td>4</td><td>−<sup>15</sup>⁄<sub>16</sub>(1+x)<sup>−7/2</sup></td><td>−<sup>15</sup>⁄<sub>16</sub></td><td>(−<sup>15</sup>⁄<sub>16</sub>/4!)x⁴ = −5x⁴/128</td></tr>
+    </table>
+
+    <p style="margin-top: 10px;"><strong>Answer:</strong> (1 + x)<sup>1/2</sup> ≈ 1 + x/2 − x²/8 + x³/16 − 5x⁴/128 + ...</p>
+    <p style="font-size: 12.5px;"><strong>Valid for |x| &lt; 1</strong> (binomial-type series).</p>
+  </div>
+
+  <h2 class="underlined">Worked example 2 — use standard series</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find the Maclaurin series for f(x) = e<sup>2x</sup> as far as the term in x⁴.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Don't differentiate from scratch — substitute into the known e<sup>x</sup> series.</p>
+
+    <p>e<sup>x</sup> = 1 + x + x²/2! + x³/3! + x⁴/4! + ...</p>
+    <p>Replace x with 2x:</p>
+    <p>e<sup>2x</sup> = 1 + (2x) + (2x)²/2! + (2x)³/3! + (2x)⁴/4! + ...</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; = 1 + 2x + 4x²/2 + 8x³/6 + 16x⁴/24 + ...</p>
+    <p style="font-weight: 600;">&nbsp;&nbsp;&nbsp;&nbsp; = 1 + 2x + 2x² + 4x³/3 + 2x⁴/3 + ...</p>
+    <p style="font-size: 12.5px; margin-top: 8px;">Valid for all real x.</p>
+  </div>
+
+  <h2 class="underlined">Worked example 3 — combine series</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find the Maclaurin series for f(x) = e<sup>x</sup>·sin x up to the term in x⁴.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Multiply the two known series, keeping terms only up to x⁴.</p>
+
+    <p>e<sup>x</sup> = 1 + x + x²/2 + x³/6 + x⁴/24 + ...</p>
+    <p>sin x = x − x³/6 + x⁵/120 − ...</p>
+
+    <p style="margin-top: 8px;">Multiply, only keeping terms whose combined power ≤ 4:</p>
+    <p>1·(x − x³/6) + x·(x − x³/6) + (x²/2)·x + (x³/6)·x + ...</p>
+    <p>= x − x³/6 + x² − x⁴/6 + x³/2 + x⁴/6</p>
+    <p>= x + x² + (−x³/6 + x³/2) + (−x⁴/6 + x⁴/6)</p>
+    <p>= x + x² + x³(−1/6 + 3/6) + 0</p>
+    <p style="font-weight: 600;">= x + x² + x³/3 + ... (x⁴ coefficient is 0 in this case)</p>
+
+    <p style="font-size: 12.5px; margin-top: 8px;">Careful: we need terms up to x⁴, so continue to x⁵ products if x⁴ coefficient cancels to zero. Extending: next nonzero term comes from (x²/2)(x³)... actually x⁵ products can't contribute to x⁴.</p>
+  </div>
+
+  <h2 class="underlined">Using Maclaurin to approximate values</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Use the Maclaurin series for cos x to estimate cos(0.1) to 5 decimal places.</p>
+
+    <p style="margin-top: 10px;">cos x = 1 − x²/2! + x⁴/4! − ...</p>
+    <p>cos(0.1) = 1 − 0.01/2 + 0.0001/24 − ...</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp; = 1 − 0.005 + 0.00000417 − ...</p>
+    <p style="font-weight: 600;">&nbsp;&nbsp;&nbsp;&nbsp; ≈ 0.99500</p>
+
+    <p style="font-size: 12.5px;">Calculator check: cos(0.1) = 0.99500... ✓. The approximation is excellent because x = 0.1 is small — the next term (x⁶/6!) is ≈ 10<sup>−9</sup>, negligible.</p>
+  </div>
+
+  <h2 class="underlined">Range of validity — why it matters</h2>
+
+  <div class="card">
+    <p>Maclaurin series don't always converge to the function. The range where they do is the <span class="key-term">radius of convergence</span>.</p>
+
+    <table style="margin-top: 8px; font-size: 13.5px;">
+      <tr><th>Function</th><th>Valid for</th></tr>
+      <tr><td>e<sup>x</sup>, sin x, cos x</td><td>All real x</td></tr>
+      <tr><td>ln(1 + x)</td><td>−1 &lt; x ≤ 1</td></tr>
+      <tr><td>(1 + x)<sup>n</sup> (non-integer n)</td><td>|x| &lt; 1</td></tr>
+      <tr><td>1/(1 − x) = 1 + x + x² + ...</td><td>|x| &lt; 1</td></tr>
+    </table>
+
+    <p style="margin-top: 8px;"><strong>Key intuition:</strong> the series for f(x) will usually be valid within the nearest distance from 0 to any point where f is undefined or singular. ln(1+x) has a problem at x = −1 (ln 0), so valid radius is 1.</p>
+
+    <p style="margin-top: 8px;"><strong>Exam warning.</strong> If the question gives x = 2 and asks you to use ln(1+x) series, the series won't converge. State this and refuse — examiners are testing whether you check validity.</p>
+  </div>
+
+  <h2 class="underlined">Two-minute summary</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>Maclaurin formula:</strong> f(x) = Σ f<sup>(n)</sup>(0) x<sup>n</sup> / n!</li>
+      <li><strong>e<sup>x</sup>:</strong> 1 + x + x²/2! + x³/3! + ... (all x)</li>
+      <li><strong>ln(1+x):</strong> x − x²/2 + x³/3 − x⁴/4 + ... (−1 &lt; x ≤ 1)</li>
+      <li><strong>sin x:</strong> x − x³/3! + x⁵/5! − ... (all x)</li>
+      <li><strong>cos x:</strong> 1 − x²/2! + x⁴/4! − ... (all x)</li>
+      <li><strong>Strategies:</strong> substitute (e<sup>2x</sup>, sin(x²)); multiply two series (e<sup>x</sup> sin x); differentiate or integrate term-by-term.</li>
+      <li><strong>Always check:</strong> does the x-value lie in the range of validity?</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Past paper practice</h2>
+
+  <div class="card" style="border-left: 3px solid var(--fm);">
+    <p style="margin-bottom: 8px;"><strong>FM Paper 1 typically has a Maclaurin question.</strong> Scan the papers below.</p>
+    <div style="margin: 14px 0; padding: 10px 12px; background: #fdfbf5; border-radius: 3px;">
+      <p style="font-size: 13px; font-weight: 600;">FM Paper 1 2023 + 2022</p>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 6px;">Look for questions asking you to derive a series from scratch, combine two known series, or use a series to approximate.</p>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        <a href="../papers/fm/2023/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2023 QP</a>
+        <a href="../papers/fm/2023/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">2023 MS</a>
+        <a href="../papers/fm/2022/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2022 QP</a>
+        <a href="../papers/fm/2022/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">2022 MS</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="underlined">Practice problems</h2>
+
+  <div class="card-green retrieval">
+    <ol>
+      <li>Write out the Maclaurin series for e<sup>x</sup>, ln(1+x), sin x, cos x from memory. Include range of validity for each. <span class="answer-space"></span></li>
+      <li>Find the Maclaurin series for e<sup>−x</sup> as far as x⁴. <span class="answer-space"></span></li>
+      <li>Find the Maclaurin series for sin(2x) as far as x⁵. <span class="answer-space"></span></li>
+      <li>Find the series for ln(1 − x) and state its range of validity. <span class="answer-space"></span></li>
+      <li>Find the Maclaurin series for cos(x²) as far as x⁸. <span class="answer-space"></span></li>
+      <li>Use the first three non-zero terms of the cos x series to estimate cos(0.2). Compare with your calculator. <span class="answer-space"></span></li>
+      <li>Find the first four non-zero terms of the Maclaurin series for (1 + x)<sup>−1/2</sup>. <span class="answer-space"></span></li>
+      <li>Derive the first four non-zero terms of the Maclaurin series for tan x. (Hint: use sin/cos and long division or power series division.) <span class="answer-space"></span></li>
+    </ol>
+    <p style="margin-top: 14px; font-style: italic; color: var(--muted); font-size: 12.5px;">
+      <strong>Quick answers:</strong>
+      Q2: 1 − x + x²/2 − x³/6 + x⁴/24.
+      Q3: 2x − 4x³/3 + 4x⁵/15.
+      Q4: −x − x²/2 − x³/3 − ... (valid for −1 ≤ x &lt; 1).
+      Q5: 1 − x⁴/2 + x⁸/24.
+      Q6: cos(0.2) ≈ 1 − 0.02 + 0.0000667 ≈ 0.98007. Calculator: 0.98007.
+      Q7: 1 − x/2 + 3x²/8 − 5x³/16 + 35x⁴/128.
+      Q8: tan x ≈ x + x³/3 + 2x⁵/15 + 17x⁷/315.
+    </p>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-market-structures-2.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Also today</div>
+      Market structures 2
+    </a>
+    <a href="index.html" class="pack-nav-next">
+      <div class="pack-nav-label">Back to</div>
+      All study packs
+    </a>
+  </div>
+
+  <footer>
+    AQA Further Maths 7367 · Core Pure D3 · Tue 21 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>
