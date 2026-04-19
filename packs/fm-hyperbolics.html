@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hyperbolics · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .formula-block {
+    background: #f5f3eb;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 8px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    text-align: center;
+  }
+  .formula-block.big { font-size: 17px; padding: 14px 18px; }
+  sup { font-size: 0.75em; vertical-align: super; }
+  sub { font-size: 0.75em; vertical-align: sub; }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .compare-grid .col-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    border-radius: 4px;
+  }
+  .compare-grid h4 {
+    margin-top: 0;
+    font-size: 13px;
+  }
+  .formulae-table {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+  }
+  .formulae-table td {
+    padding: 5px 10px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../papers/index.html">Papers</a>
+      <a href="../papers/questions.html">Questions</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Further Maths · 7367 · Core Pure · Thu 23 Apr</p>
+  <h1>Hyperbolics <span style="color: var(--red); font-weight: 500;">[RED × 2]</span></h1>
+  <p class="page-subtitle">H2 Inverse hyperbolics · H3 Hyperbolic calculus — paired session</p>
+
+  <div class="card-yellow">
+    <strong>Session plan — two RED topics in one session</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>10 min</strong> — Recap H1 (basic hyperbolics): definitions, identities.</li>
+      <li><strong>30 min</strong> — H2 Inverse hyperbolics: log forms, domains, derivatives.</li>
+      <li><strong>35 min</strong> — H3 Hyperbolic calculus: differentiation, integration, standard integrals.</li>
+      <li><strong>20 min</strong> — Worked examples combining both topics.</li>
+      <li><strong>15 min</strong> — Practice set.</li>
+    </ol>
+    <p style="margin-top: 10px; font-size: 12.5px;"><strong>Strategy.</strong> Hyperbolic functions are almost isomorphic to trigonometric functions. Learn the mapping (sin ↔ sinh, cos ↔ cosh, tan ↔ tanh) and 80% of what you need falls out. Key differences: sign flips in identities, no periodicity.</p>
+  </div>
+
+  <h2 class="underlined">Recap — basic hyperbolics (H1)</h2>
+
+  <h3>Definitions</h3>
+
+  <div class="formula-block big">
+    sinh x = (e<sup>x</sup> − e<sup>−x</sup>) / 2 &nbsp;&nbsp;·&nbsp;&nbsp;
+    cosh x = (e<sup>x</sup> + e<sup>−x</sup>) / 2 &nbsp;&nbsp;·&nbsp;&nbsp;
+    tanh x = sinh x / cosh x
+  </div>
+
+  <h3>Core identity (the one to memorise)</h3>
+
+  <div class="formula-block big">
+    cosh<sup>2</sup> x − sinh<sup>2</sup> x = 1
+  </div>
+
+  <p><strong>Note the minus sign</strong> — the trigonometric analogue is cos²x + sin²x = 1. This is the key difference.</p>
+
+  <h3>Derived identities (worth knowing)</h3>
+
+  <div class="formula-block">
+    sinh(2x) = 2 sinh x cosh x<br>
+    cosh(2x) = cosh²x + sinh²x = 2cosh²x − 1 = 1 + 2sinh²x
+  </div>
+
+  <h3>Graph shapes — know these cold</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hyp-graphs-title">
+      <title id="hyp-graphs-title">Graphs of sinh, cosh and tanh</title>
+
+      <!-- Axes -->
+      <line x1="250" y1="10" x2="250" y2="250" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="30" y1="130" x2="470" y2="130" stroke="#1a1a1a" stroke-width="1"/>
+
+      <!-- sinh - red -->
+      <path d="M 50 230 Q 170 180 240 135 T 450 30" stroke="#b8410f" stroke-width="2.5" fill="none"/>
+      <text x="455" y="35" class="svg-curve-label" style="fill: #b8410f;">sinh x</text>
+
+      <!-- cosh - blue, min at x=0 -->
+      <path d="M 50 35 Q 150 115 250 125 Q 350 115 450 35" stroke="#1e5b8c" stroke-width="2.5" fill="none"/>
+      <text x="455" y="40" class="svg-curve-label">cosh x</text>
+      <!-- y-intercept label -->
+      <circle cx="250" cy="125" r="3" fill="#1e5b8c"/>
+      <text x="256" y="120" class="svg-label" style="font-size: 11px;">(0, 1)</text>
+
+      <!-- tanh - green asymptotic to ±1 -->
+      <path d="M 50 95 Q 180 98 250 130 Q 320 162 450 165" stroke="#4a7c2a" stroke-width="2.5" fill="none"/>
+      <text x="455" y="170" class="svg-curve-label" style="fill: #4a7c2a;">tanh x</text>
+      <!-- Asymptotes -->
+      <line x1="30" y1="95" x2="470" y2="95" stroke="#4a7c2a" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+      <line x1="30" y1="165" x2="470" y2="165" stroke="#4a7c2a" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+      <text x="32" y="92" class="svg-label" style="font-size: 10.5px; fill: #4a7c2a;">y=1</text>
+      <text x="32" y="177" class="svg-label" style="font-size: 10.5px; fill: #4a7c2a;">y=-1</text>
+    </svg>
+    <p class="diagram-caption">sinh x: odd function, passes through origin, unbounded. cosh x: even, minimum value 1 at x=0, U-shaped (catenary). tanh x: bounded between ±1, S-curve through origin.</p>
+  </div>
+
+  <h2 class="underlined">H2 — Inverse hyperbolics</h2>
+
+  <h3>Log forms — you must memorise these</h3>
+
+  <p>Inverse hyperbolic functions have closed-form logarithmic expressions (unlike inverse trig). Derive them by solving y = sinh x etc. for x. These are in the formula booklet but you need them fluently.</p>
+
+  <div class="formula-block big" style="text-align: left;">
+    arsinh x = ln(x + √(x² + 1)) &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(for all real x)</span><br><br>
+    arcosh x = ln(x + √(x² − 1)) &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(for x ≥ 1, principal branch)</span><br><br>
+    artanh x = ½ ln((1 + x)/(1 − x)) &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(for |x| &lt; 1)</span>
+  </div>
+
+  <h3>Derivation of arsinh (for practice)</h3>
+
+  <div class="card">
+    <p><strong>Start with:</strong> y = sinh x, so x = arsinh y. Rearrange for x.</p>
+    <p style="margin-top: 6px;">y = (e<sup>x</sup> − e<sup>−x</sup>) / 2</p>
+    <p>2y = e<sup>x</sup> − e<sup>−x</sup></p>
+    <p>Multiply through by e<sup>x</sup>: &nbsp; 2y·e<sup>x</sup> = e<sup>2x</sup> − 1</p>
+    <p>(e<sup>x</sup>)² − 2y·(e<sup>x</sup>) − 1 = 0 &nbsp;&nbsp; <span style="color: var(--muted);">(quadratic in e<sup>x</sup>)</span></p>
+    <p>e<sup>x</sup> = (2y ± √(4y² + 4)) / 2 = y ± √(y² + 1)</p>
+    <p>Since e<sup>x</sup> &gt; 0, take the + root: &nbsp; e<sup>x</sup> = y + √(y² + 1)</p>
+    <p><strong>Therefore x = ln(y + √(y² + 1))</strong>, so arsinh y = ln(y + √(y² + 1)). ✓</p>
+  </div>
+
+  <div class="examiner">
+    <strong>Exam use.</strong> If asked to "express arsinh(3) as a natural logarithm in exact form", just plug into the formula: arsinh(3) = ln(3 + √10). That's the exam answer — no decimal approximation.
+  </div>
+
+  <h3>Domain and range summary</h3>
+
+  <table>
+    <thead>
+      <tr><th>Function</th><th>Domain</th><th>Range</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>arsinh x</td><td>All real x</td><td>All real y</td></tr>
+      <tr><td>arcosh x</td><td>x ≥ 1</td><td>y ≥ 0 (principal)</td></tr>
+      <tr><td>artanh x</td><td>−1 &lt; x &lt; 1</td><td>All real y</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Derivatives of inverse hyperbolics</h3>
+
+  <div class="formula-block big" style="text-align: left;">
+    d/dx [arsinh x] = 1 / √(x² + 1)<br><br>
+    d/dx [arcosh x] = 1 / √(x² − 1) &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(for x &gt; 1)</span><br><br>
+    d/dx [artanh x] = 1 / (1 − x²) &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(for |x| &lt; 1)</span>
+  </div>
+
+  <p style="font-size: 13px;"><strong>Pattern:</strong> these mirror the inverse trig derivatives 1/√(1−x²), 1/√(1+x²)... but with signs flipped. Memorise as a set; they appear routinely in integration by recognition.</p>
+
+  <h2 class="underlined">H3 — Hyperbolic calculus</h2>
+
+  <h3>Standard derivatives</h3>
+
+  <div class="formula-block big" style="text-align: left;">
+    d/dx [sinh x] = cosh x &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(same as trig, no sign change)</span><br><br>
+    d/dx [cosh x] = sinh x &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(differs from trig: no minus)</span><br><br>
+    d/dx [tanh x] = sech<sup>2</sup> x = 1 − tanh<sup>2</sup> x
+  </div>
+
+  <div class="examiner">
+    <strong>The critical trap.</strong> d/dx [cos x] = <em>−</em>sin x, BUT d/dx [cosh x] = <em>+</em>sinh x. Many students apply the trig minus sign by habit. Don't.
+  </div>
+
+  <h3>Standard integrals — recognition targets</h3>
+
+  <p>The whole point of learning inverse hyperbolics is to recognise integrals whose answer is an inverse hyperbolic function.</p>
+
+  <div class="formula-block big" style="text-align: left;">
+    ∫ 1 / √(x² + a²) dx = arsinh(x/a) + c<br><br>
+    ∫ 1 / √(x² − a²) dx = arcosh(x/a) + c &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(x &gt; a)</span><br><br>
+    ∫ 1 / (a² − x²) dx = (1/a) artanh(x/a) + c &nbsp;&nbsp;<span style="font-size: 12px; color: var(--muted);">(|x| &lt; a)</span>
+  </div>
+
+  <div class="card">
+    <p><strong>Comparison with inverse trig integrals</strong> — you already know these from A-level Maths:</p>
+    <ul>
+      <li>∫ 1/√(a² − x²) dx = arcsin(x/a) + c &nbsp;<em>(minus sign under root → arcsin)</em></li>
+      <li>∫ 1/(a² + x²) dx = (1/a) arctan(x/a) + c &nbsp;<em>(plus sign in denom → arctan)</em></li>
+    </ul>
+    <p style="margin-top: 8px;">Pattern: look at the sign inside the surd or denominator to decide whether it's a trig or hyperbolic inverse.</p>
+  </div>
+
+  <h3>The "sign check" cheat sheet</h3>
+
+  <table class="formulae-table">
+    <thead>
+      <tr><th>Integrand</th><th>Look at</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1/√(a² − x²)</td><td>+/− under root</td><td>arcsin</td></tr>
+      <tr><td>1/√(a² + x²)</td><td>both + under root</td><td>arsinh</td></tr>
+      <tr><td>1/√(x² − a²)</td><td>−a² under root</td><td>arcosh</td></tr>
+      <tr><td>1/(a² + x²)</td><td>both + in denom</td><td>arctan</td></tr>
+      <tr><td>1/(a² − x²)</td><td>a² − x² in denom</td><td>artanh</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="underlined">Worked example 1 — inverse hyperbolic in log form</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Express arcosh(5/3) in the form ln(p/q) where p and q are integers.</p>
+
+    <p style="margin-top: 10px;">arcosh(5/3) = ln(5/3 + √((5/3)² − 1))</p>
+    <p>= ln(5/3 + √(25/9 − 9/9))</p>
+    <p>= ln(5/3 + √(16/9))</p>
+    <p>= ln(5/3 + 4/3)</p>
+    <p>= ln(9/3) = <strong>ln 3</strong></p>
+  </div>
+
+  <h2 class="underlined">Worked example 2 — integration by recognition</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Evaluate ∫ 1/√(x² + 9) dx from 0 to 4.</p>
+
+    <p style="margin-top: 10px;">Recognition: 1/√(x² + 9) = 1/√(x² + 3²). This is the arsinh(x/a) form with a = 3.</p>
+    <p>So ∫ = [arsinh(x/3)] from 0 to 4</p>
+    <p>= arsinh(4/3) − arsinh(0)</p>
+    <p>= ln(4/3 + √((4/3)² + 1)) − 0</p>
+    <p>= ln(4/3 + √(16/9 + 9/9))</p>
+    <p>= ln(4/3 + √(25/9))</p>
+    <p>= ln(4/3 + 5/3) = <strong>ln 3</strong></p>
+  </div>
+
+  <h2 class="underlined">Worked example 3 — substitution to hyperbolic</h2>
+
+  <div class="card">
+    <p><strong>Q:</strong> Find ∫ √(x² + 4) dx.</p>
+
+    <p style="margin-top: 10px;"><strong>Method.</strong> Try substitution x = 2 sinh u (because x² + 4 suggests sinh substitution with a = 2). Then dx = 2 cosh u du and x² + 4 = 4sinh²u + 4 = 4(sinh²u + 1) = 4cosh²u.</p>
+    <p>So √(x² + 4) = 2 cosh u.</p>
+    <p>∫ √(x² + 4) dx = ∫ 2 cosh u · 2 cosh u du = 4 ∫ cosh²u du</p>
+
+    <p style="margin-top: 8px;">Use the identity cosh²u = (cosh(2u) + 1)/2:</p>
+    <p>= 4 · ½ ∫ (cosh(2u) + 1) du</p>
+    <p>= 2 [½ sinh(2u) + u] + c</p>
+    <p>= sinh(2u) + 2u + c</p>
+    <p>= 2 sinh u · cosh u + 2u + c &nbsp; <span style="color: var(--muted);">(double-angle)</span></p>
+
+    <p style="margin-top: 8px;">Back-substitute: sinh u = x/2, cosh u = √(x² + 4)/2, u = arsinh(x/2).</p>
+    <p>= 2 · (x/2) · √(x² + 4)/2 + 2 arsinh(x/2) + c</p>
+    <p>= <strong>(x/2)·√(x² + 4) + 2 arsinh(x/2) + c</strong></p>
+  </div>
+
+  <h2 class="underlined">Two-minute summary</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>cosh² x − sinh² x = 1</strong> (note the minus — differs from trig).</li>
+      <li><strong>d/dx cosh x = +sinh x</strong> (NOT minus — trap).</li>
+      <li><strong>Inverse log forms:</strong> arsinh = ln(x + √(x²+1)); arcosh = ln(x + √(x²−1)); artanh = ½ ln((1+x)/(1−x)).</li>
+      <li><strong>Standard integrals:</strong> ∫dx/√(x²+a²) = arsinh(x/a); ∫dx/√(x²−a²) = arcosh(x/a); ∫dx/(a²−x²) = (1/a) artanh(x/a).</li>
+      <li><strong>Sign check:</strong> signs under the root/in the denominator determine trig vs hyperbolic inverse.</li>
+      <li><strong>Hard integrals with √(x²±a²):</strong> substitute x = a sinh u or x = a cosh u.</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Past paper practice</h2>
+
+  <div class="card" style="border-left: 3px solid var(--fm);">
+    <p style="margin-bottom: 8px;"><strong>FM Paper 1 typically has one hyperbolic question — usually integration by recognition or a log-form conversion.</strong></p>
+    <div style="margin: 14px 0; padding: 10px 12px; background: #fdfbf5; border-radius: 3px;">
+      <p style="font-size: 13px; font-weight: 600;">FM Paper 1 2023 + 2022</p>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 6px;">Scan for questions involving sinh, cosh, tanh, or integrals with √(x² ± a²) patterns.</p>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        <a href="../papers/fm/2023/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2023 QP</a>
+        <a href="../papers/fm/2023/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">2023 MS</a>
+        <a href="../papers/fm/2022/p1-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2022 QP</a>
+        <a href="../papers/fm/2022/p1-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">2022 MS</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="underlined">Practice problems</h2>
+
+  <div class="card-green retrieval">
+    <ol>
+      <li>Prove cosh² x − sinh² x = 1 from the exponential definitions. <span class="answer-space"></span></li>
+      <li>Express arsinh(√3) in exact log form. <span class="answer-space"></span></li>
+      <li>Express arcosh(13/12) in the form ln(p/q). <span class="answer-space"></span></li>
+      <li>Evaluate artanh(1/2) in exact log form. <span class="answer-space"></span></li>
+      <li>Differentiate y = cosh(3x² + 1). <span class="answer-space"></span></li>
+      <li>Differentiate y = arsinh(x²). <span class="answer-space"></span></li>
+      <li>Find ∫ 1/√(x² + 25) dx. <span class="answer-space"></span></li>
+      <li>Find ∫ 1/√(4x² − 9) dx. (Hint: factor out the 4 first.) <span class="answer-space"></span></li>
+      <li>Find ∫ 1/(16 − 9x²) dx. <span class="answer-space"></span></li>
+      <li>Find ∫ √(x² + 16) dx using substitution x = 4 sinh u. <span class="answer-space"></span></li>
+    </ol>
+    <p style="margin-top: 14px; font-style: italic; color: var(--muted); font-size: 12.5px;">
+      <strong>Quick answers:</strong>
+      Q2: ln(√3 + 2).
+      Q3: ln(3/2).
+      Q4: ½ ln 3.
+      Q5: 6x·sinh(3x² + 1).
+      Q6: 2x/√(x⁴ + 1).
+      Q7: arsinh(x/5) + c.
+      Q8: ½ arcosh(2x/3) + c.
+      Q9: (1/12) artanh(3x/4) + c.
+      Q10: (x/2)√(x² + 16) + 8 arsinh(x/4) + c.
+    </p>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-externalities.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Also today</div>
+      Econ externalities
+    </a>
+    <a href="index.html" class="pack-nav-next">
+      <div class="pack-nav-label">Back to</div>
+      All study packs
+    </a>
+  </div>
+
+  <footer>
+    AQA Further Maths 7367 · Core Pure H2 + H3 · Thu 23 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>

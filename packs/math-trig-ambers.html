@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maths trig ambers · Study pack</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .formula-block {
+    background: #f5f3eb;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 8px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    text-align: center;
+  }
+  .formula-block.big { font-size: 17px; padding: 14px 18px; }
+  sup { font-size: 0.75em; vertical-align: super; }
+  sub { font-size: 0.75em; vertical-align: sub; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="index.html" class="active">Study packs</a>
+      <a href="../papers/index.html">Papers</a>
+      <a href="../papers/questions.html">Questions</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-narrow">
+
+  <p class="eyebrow">AQA Maths · 7357 · Core · Fri 24 Apr</p>
+  <h1>Trig — Amber Cleanup</h1>
+  <p class="page-subtitle">E2 Small angle approximations · E4 R sin(x+α) form — 5 questions each</p>
+
+  <div class="card-yellow">
+    <strong>90-minute session</strong>
+    <ol style="margin-top: 8px;">
+      <li><strong>5 min</strong> — Warm-up: FM hyperbolics from yesterday.</li>
+      <li><strong>25 min</strong> — E2 Small angle approximations: sin x ≈ x, cos x ≈ 1 − x²/2, tan x ≈ x. Plus 5 questions.</li>
+      <li><strong>40 min</strong> — E4 R sin(x + α) form and applications. Plus 5 questions.</li>
+      <li><strong>15 min</strong> — Check against mark schemes, drill the weak ones.</li>
+      <li><strong>5 min</strong> — Retrieval test.</li>
+    </ol>
+    <p style="margin-top: 10px; font-size: 12.5px;"><strong>This is amber cleanup</strong> — you can do these. Today is about making them reflex-fast so you don't waste exam time. Target: every question solved in under 5 min.</p>
+  </div>
+
+  <h2 class="underlined">E2 — Small angle approximations</h2>
+
+  <h3>The three approximations — memorise</h3>
+
+  <div class="formula-block big">
+    For small x (in radians):<br><br>
+    sin x ≈ x<br><br>
+    cos x ≈ 1 − x²/2<br><br>
+    tan x ≈ x
+  </div>
+
+  <p><strong>Why</strong> — these are the first non-trivial terms of the Maclaurin series for each function. For |x| small, higher-order terms become negligible.</p>
+
+  <div class="examiner">
+    <strong>Critical:</strong> the approximations only work in <em>radians</em>, not degrees. Questions always use radians. If a question says "x is small and in degrees", convert first.
+  </div>
+
+  <h3>Accuracy — when does it break?</h3>
+
+  <p>Rough guide:</p>
+  <ul>
+    <li>For |x| &lt; 0.1 rad (~5.7°), all three approximations are accurate to ~4 decimal places.</li>
+    <li>For |x| &lt; 0.5 rad (~28°), sin and tan diverge from x by a few percent.</li>
+    <li>For |x| around 1 rad, errors exceed 10% — don't use.</li>
+  </ul>
+
+  <p>AQA questions will always give you an "x is small" setup so the approximations apply. Never second-guess this in the exam.</p>
+
+  <h3>Key techniques</h3>
+
+  <div class="card">
+    <p><strong>Technique 1 — direct substitution.</strong></p>
+    <p>"Given x is small, find approximate value of sin(3x) cos(2x)."</p>
+    <p>sin(3x) ≈ 3x (replace x with 3x in sin x ≈ x)</p>
+    <p>cos(2x) ≈ 1 − (2x)²/2 = 1 − 2x²</p>
+    <p>Product ≈ 3x · (1 − 2x²) = 3x − 6x³</p>
+    <p>For "small" angles, keep terms up to the highest power that's still meaningful (usually x² or x³).</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Technique 2 — first order vs second order.</strong></p>
+    <p>cos x has no linear term (it starts 1 − x²/2 + ...), so you sometimes need cos ≈ 1 for very rough work, or cos ≈ 1 − x²/2 when x² matters.</p>
+    <p>Read the question: "Find the first two non-zero terms..." = you need the quadratic; "Approximate to first order" = linear only.</p>
+  </div>
+
+  <h3>Five practice questions</h3>
+
+  <div class="card-green">
+    <ol>
+      <li>Given x is small, find an approximation for sin(4x) + cos(3x) as a polynomial in x. <span class="answer-space"></span></li>
+      <li>Use small-angle approximations to find lim<sub>x→0</sub> (sin 3x) / (tan 5x). <span class="answer-space"></span></li>
+      <li>Given x is small, show that (1 + cos x) / (1 − cos x) ≈ 4/x². <span class="answer-space"></span></li>
+      <li>Find an approximation for (sin x · cos x) / x³, valid for x small and non-zero. <span class="answer-space"></span></li>
+      <li>Use a small-angle approximation to estimate sin(0.02). Compare with your calculator. <span class="answer-space"></span></li>
+    </ol>
+    <p style="margin-top: 12px; font-style: italic; color: var(--muted); font-size: 12.5px;">
+      <strong>Quick answers:</strong>
+      Q1: sin(4x) ≈ 4x, cos(3x) ≈ 1 − 9x²/2. Sum ≈ 1 + 4x − 9x²/2.
+      Q2: sin(3x)/tan(5x) ≈ 3x/5x = 3/5.
+      Q3: 1 + cos x ≈ 2, 1 − cos x ≈ x²/2. Ratio = 2 ÷ (x²/2) = 4/x². ✓
+      Q4: sin x · cos x ≈ x · 1 = x (first order). So (sin x cos x)/x³ ≈ 1/x². (Keep terms as needed.)
+      Q5: sin(0.02) ≈ 0.02. Calculator: 0.01999866... — error ~10⁻⁶.
+    </p>
+  </div>
+
+  <h2 class="underlined">E4 — R sin(x + α) form</h2>
+
+  <h3>The core identity</h3>
+
+  <div class="formula-block big">
+    a sin x + b cos x ≡ R sin(x + α)<br><br>
+    where R = √(a² + b²) and tan α = b/a
+  </div>
+
+  <p>Also commonly used:</p>
+  <ul>
+    <li>a sin x − b cos x ≡ R sin(x − α)</li>
+    <li>a cos x + b sin x ≡ R cos(x − α)</li>
+    <li>a cos x − b sin x ≡ R cos(x + α)</li>
+  </ul>
+
+  <p>Same R = √(a² + b²); α is always a positive acute angle in the first quadrant. Choose the identity that gives you a positive α.</p>
+
+  <h3>How to derive</h3>
+
+  <div class="card">
+    <p>Expand R sin(x + α) using the compound angle formula:</p>
+    <p>R sin(x + α) = R sin x cos α + R cos x sin α</p>
+    <p>Compare with a sin x + b cos x:</p>
+    <ul>
+      <li>R cos α = a</li>
+      <li>R sin α = b</li>
+    </ul>
+    <p>Square and add: R² cos²α + R² sin²α = a² + b² → R² = a² + b² → R = √(a² + b²).</p>
+    <p>Divide: tan α = b/a.</p>
+  </div>
+
+  <h3>Why use this form</h3>
+
+  <ol>
+    <li><strong>Finding max/min</strong> of a sin x + b cos x. The expression ≡ R sin(x + α) has maximum value R (when sin = 1) at x = π/2 − α, and minimum −R at x = 3π/2 − α.</li>
+    <li><strong>Solving equations</strong> like a sin x + b cos x = c. Convert to R sin(x + α) = c, then x + α = arcsin(c/R) + more roots. Much simpler than tackling a sin + b cos directly.</li>
+    <li><strong>Modelling waves.</strong> Any sinusoidal oscillation with amplitude and phase can be written in R sin(ωt + φ) form.</li>
+  </ol>
+
+  <h3>Worked example — the standard exam question</h3>
+
+  <div class="card">
+    <p><strong>Q:</strong> Express 3 sin x + 4 cos x in the form R sin(x + α), where R &gt; 0 and 0 &lt; α &lt; π/2. Hence solve 3 sin x + 4 cos x = 2 for 0 ≤ x &lt; 2π.</p>
+
+    <p style="margin-top: 10px;"><strong>Part 1 — convert:</strong></p>
+    <p>R = √(3² + 4²) = √25 = 5</p>
+    <p>tan α = 4/3, so α = arctan(4/3) ≈ 0.927 rad</p>
+    <p>So 3 sin x + 4 cos x ≡ <strong>5 sin(x + 0.927)</strong></p>
+
+    <p style="margin-top: 10px;"><strong>Part 2 — solve:</strong></p>
+    <p>5 sin(x + 0.927) = 2</p>
+    <p>sin(x + 0.927) = 0.4</p>
+    <p>x + 0.927 = arcsin(0.4) = 0.412 rad &nbsp; OR &nbsp; x + 0.927 = π − 0.412 = 2.730 rad</p>
+
+    <p style="margin-top: 6px;">So x = 0.412 − 0.927 = −0.515 (not in range; add 2π: 5.768)</p>
+    <p>Or x = 2.730 − 0.927 = 1.803</p>
+
+    <p style="margin-top: 6px;"><strong>Solutions: x = 1.803 rad and x = 5.768 rad (to 3 dp)</strong></p>
+  </div>
+
+  <div class="examiner">
+    <strong>Trap to avoid.</strong> When solving, remember sin θ = k has TWO solutions per 2π interval: θ = arcsin(k) and θ = π − arcsin(k). Students commonly forget the second. Always consider both.
+  </div>
+
+  <h3>Five practice questions</h3>
+
+  <div class="card-green">
+    <ol>
+      <li>Express 5 sin x − 12 cos x in the form R sin(x − α), R &gt; 0, 0 &lt; α &lt; π/2. <span class="answer-space"></span></li>
+      <li>Find the maximum and minimum values of 6 cos x + 8 sin x and the value of x ∈ [0, 2π) where each occurs. <span class="answer-space"></span></li>
+      <li>Solve √3 sin x + cos x = 1 for 0 ≤ x &lt; 2π. <span class="answer-space"></span></li>
+      <li>A small object oscillates so that its displacement from a fixed point at time t seconds is given by y = 4 sin(2t) + 3 cos(2t) metres. Find the amplitude and the smallest positive time at which y is a maximum. <span class="answer-space"></span></li>
+      <li>Express cos x − sin x in the form R cos(x + α), R &gt; 0, 0 &lt; α &lt; π/2. Hence solve cos x − sin x = 0.5 for −π ≤ x ≤ π. <span class="answer-space"></span></li>
+    </ol>
+    <p style="margin-top: 12px; font-style: italic; color: var(--muted); font-size: 12.5px;">
+      <strong>Quick answers:</strong>
+      Q1: R = 13, α = arctan(12/5) ≈ 1.176 rad. So 13 sin(x − 1.176).
+      Q2: R = √(36+64) = 10. Max 10 at x = π/2 − arctan(6/8) = π/2 − 0.6435 ≈ 0.927. Min −10 at x = 0.927 + π ≈ 4.069.
+      Q3: R = 2, α = π/6. 2 sin(x + π/6) = 1, sin(x + π/6) = 0.5, x + π/6 = π/6 or 5π/6. So x = 0 or x = 2π/3.
+      Q4: R = 5 metres. y = 5 sin(2t + 0.6435). Max when 2t + 0.6435 = π/2, so t = (π/2 − 0.6435)/2 ≈ 0.464 s.
+      Q5: R = √2, α = π/4. √2 cos(x + π/4) = 0.5, cos(x + π/4) = 1/(2√2) ≈ 0.354, x + π/4 = ±1.209. So x ≈ 0.424 or x ≈ −2.00.
+    </p>
+  </div>
+
+  <h2 class="underlined">Two-minute summary</h2>
+
+  <div class="card-grey">
+    <ul>
+      <li><strong>Small angle approx</strong> (x in radians, x small): sin x ≈ x, cos x ≈ 1 − x²/2, tan x ≈ x.</li>
+      <li><strong>Applications:</strong> evaluating limits as x→0, simplifying expressions involving small angles, physics modelling.</li>
+      <li><strong>R sin(x+α) form:</strong> R = √(a²+b²), tan α = b/a (or appropriate ratio for chosen form).</li>
+      <li><strong>Uses:</strong> max/min of a sin + b cos (= ±R); solving a sin x + b cos x = c; modelling waves with phase.</li>
+      <li><strong>Always check your α is in the right quadrant</strong> based on the signs of a and b and the chosen form.</li>
+      <li><strong>When solving:</strong> remember sin θ = k has two solutions per 2π — arcsin(k) and π − arcsin(k).</li>
+    </ul>
+  </div>
+
+  <h2 class="underlined">Past paper practice</h2>
+
+  <div class="card" style="border-left: 3px solid var(--maths);">
+    <p style="margin-bottom: 8px;"><strong>Maths Paper 2 and Paper 3 regularly have R sin(x+α) questions.</strong> Both topics covered in almost every paper.</p>
+    <div style="margin: 14px 0; padding: 10px 12px; background: #fdfbf5; border-radius: 3px;">
+      <p style="font-size: 13px; font-weight: 600;">Maths Paper 2 + 3, 2023 &amp; 2022</p>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 6px;">Search for questions using "R sin" form or asking about max/min of a sin + b cos expressions. Small-angle approx appears less often but usually in Paper 2.</p>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        <a href="../papers/maths/2023/p2-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2023 P2 QP</a>
+        <a href="../papers/maths/2023/p2-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">MS</a>
+        <a href="../papers/maths/2023/p3-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2023 P3 QP</a>
+        <a href="../papers/maths/2023/p3-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">MS</a>
+        <a href="../papers/maths/2022/p2-qp.pdf" target="_blank" style="background: #fae7dc; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--accent); border: 1px solid #f4c6a8;">2022 P2 QP</a>
+        <a href="../papers/maths/2022/p2-ms.pdf" target="_blank" style="background: #dce7f2; padding: 3px 8px; border-radius: 3px; font-size: 11px; text-decoration: none; color: var(--maths); border: 1px solid #aaccec;">MS</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="underlined">Retrieval test</h2>
+
+  <div class="card-green retrieval">
+    <ol>
+      <li>State the three small-angle approximations (in radians, x small). <span class="answer-space"></span></li>
+      <li>Write the general identity: a sin x + b cos x ≡ ? (give R and α formulae). <span class="answer-space"></span></li>
+      <li>Why do small-angle approximations only work in radians, not degrees? <span class="answer-space"></span></li>
+      <li>What's the maximum value of 7 sin x + 24 cos x? At what value of x does this occur? <span class="answer-space"></span></li>
+      <li>Solve 2 sin x + 2 cos x = √3 for 0 ≤ x &lt; 2π (3 dp). <span class="answer-space"></span></li>
+      <li>Explain when you'd use R cos(x+α) versus R sin(x+α). <span class="answer-space"></span></li>
+      <li>Why must you always state R &gt; 0 and the range of α in the final answer? <span class="answer-space"></span></li>
+    </ol>
+  </div>
+
+  <div class="pack-nav">
+    <a href="econ-competition-policy.html" class="pack-nav-prev">
+      <div class="pack-nav-label">← Also today</div>
+      Econ competition policy
+    </a>
+    <a href="index.html" class="pack-nav-next">
+      <div class="pack-nav-label">Back to</div>
+      All study packs
+    </a>
+  </div>
+
+  <footer>
+    AQA Maths 7357 · E2 + E4 ambers · Fri 24 Apr 2026
+  </footer>
+
+</div>
+
+</body>
+</html>
