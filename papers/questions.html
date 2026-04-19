@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James's Revision · Practice Questions</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .filter-bar {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 16px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .filter-group label {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .filter-group select, .filter-group input[type=text] {
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    background: white;
+  }
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 14px 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    position: relative;
+  }
+  .question-card.red-match {
+    border-left: 4px solid var(--red);
+  }
+  .question-card.amber-match {
+    border-left: 4px solid var(--amber);
+  }
+  .question-card.green-match {
+    border-left: 4px solid var(--green);
+    opacity: 0.75;
+  }
+  .question-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .marks-badge {
+    background: var(--ink);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .rag-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .rag-tag.R { background: #faecec; color: var(--red); }
+  .rag-tag.A { background: #fff3d6; color: var(--amber); }
+  .rag-tag.G { background: #e0eed3; color: var(--green); }
+  .question-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 8px 0 10px;
+  }
+  .spec-codes {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .spec-codes .code {
+    background: #f2f0e8;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+    font-family: 'Fraunces', serif;
+  }
+  .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+  }
+  .actions a {
+    background: #f2f0e8;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .actions a.qp { background: #fae7dc; color: var(--accent); border-color: #f4c6a8; }
+  .actions a.qp:hover { background: var(--accent); color: white; }
+  .actions a.ms { background: #dce7f2; color: var(--maths); border-color: #aaccec; }
+  .actions a.ms:hover { background: var(--maths); color: white; }
+  .stats-row {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 16px;
+    flex-wrap: wrap;
+  }
+  .stats-row .stat-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 3px;
+  }
+  .empty {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .legend-mini {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 8px 0;
+    flex-wrap: wrap;
+  }
+  .legend-mini .swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-title">James's Revision</a>
+    <div class="site-nav-links">
+      <a href="../index.html">Today</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../packs/index.html">Study packs</a>
+      <a href="index.html">Papers</a>
+      <a href="questions.html" class="active">Questions</a>
+      <a href="../exams.html">Exams</a>
+      <a href="../progress.html">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p class="eyebrow">Past paper questions · filtered by topic · mapped to RAG</p>
+  <h1>Practice questions</h1>
+  <p class="page-subtitle">Try 2-3 at the end of each session. Red topics first.</p>
+
+  <div class="card-grey">
+    <strong>How to use.</strong> Reds first, then ambers. Pick a question at the end of a study session while the material is fresh. Write an answer plan (5–10 min) OR a full attempt (15–40 min depending on marks). Mark with the MS. Low marks = back to the spec.
+    <p style="margin-top: 8px; font-size: 12.5px;">For Maths and Further Maths, individual questions aren't tagged — do whole past papers timed (see the <a href="index.html">Papers</a> page).</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label>Subject</label>
+      <select id="f-subject">
+        <option value="all">All</option>
+        <option value="econ">Economics</option>
+        <option value="pol">Politics</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>RAG priority</label>
+      <select id="f-rag">
+        <option value="RA">Red + Amber (default)</option>
+        <option value="R">Red only</option>
+        <option value="A">Amber only</option>
+        <option value="all">All (inc. green)</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Year</label>
+      <select id="f-year">
+        <option value="all">All</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Marks</label>
+      <select id="f-marks">
+        <option value="all">All</option>
+        <option value="9-10">9-10 mark (short)</option>
+        <option value="15">15 mark</option>
+        <option value="25">25 mark (essay)</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Topic search</label>
+      <input type="text" id="f-text" placeholder="e.g. monopsony, nationalism..." style="width: 180px;">
+    </div>
+  </div>
+
+  <div class="legend-mini">
+    <span><span class="swatch" style="background: var(--red);"></span>Red topic match</span>
+    <span><span class="swatch" style="background: var(--amber);"></span>Amber topic match</span>
+    <span><span class="swatch" style="background: var(--green);"></span>Green (already solid)</span>
+  </div>
+
+  <div class="stats-row" id="stats"></div>
+
+  <div id="questions-list"></div>
+
+  <footer>
+    40 essay-style questions curated from June 2022 + June 2023 papers. Hand-tagged against AQA spec codes.
+  </footer>
+
+</div>
+
+<script>
+// James's RAG state — captured 18 April 2026
+// Topics NOT in these sets are assumed Green
+const RED_ECON = new Set([
+  '3.1.6.1', '3.1.6.3', '3.1.6.4', '3.1.6.5', '3.1.6.7',
+  '3.1.5.8', '3.1.8.7', '3.2.1.3',
+  '3.2.4.1', '3.2.4.2', '3.2.4.3', '3.2.4.4'
+]);
+const AMBER_ECON = new Set([
+  '3.1.1.1', '3.1.1.4', '3.1.3.1', '3.1.3.3', '3.1.4.2', '3.1.4.3', '3.1.4.8',
+  '3.1.5.2', '3.1.5.3', '3.1.5.4', '3.1.5.7', '3.1.5.9', '3.1.5.11',
+  '3.1.6.2', '3.1.6.6', '3.1.7.1',
+  '3.1.8.2', '3.1.8.4',
+  '3.2.1.2', '3.2.2.4', '3.2.2.5', '3.2.2.6',
+  '3.2.3.3', '3.2.3.4', '3.2.5.2'
+]);
+
+const RED_POL = new Set([
+  'US-7', 'COMP-1', 'LIB-T2', 'SOC-T5'
+]);
+const AMBER_POL = new Set([
+  'UK-5', 'UK-6', 'UK-7', 'US-5', 'US-6', 'US-8',
+  'LIB-1', 'CON-1', 'SOC-1',
+  'NAT-1', 'NAT-2'
+]);
+
+// Utility: get highest-priority RAG for a question
+function questionRag(q) {
+  const reds = q.subject === 'econ' ? RED_ECON : RED_POL;
+  const ambers = q.subject === 'econ' ? AMBER_ECON : AMBER_POL;
+  let hasRed = false, hasAmber = false;
+  for (const c of q.codes) {
+    if (reds.has(c)) hasRed = true;
+    else if (ambers.has(c)) hasAmber = true;
+  }
+  if (hasRed) return 'R';
+  if (hasAmber) return 'A';
+  return 'G';
+}
+
+let QUESTIONS = [];
+
+async function loadQuestions() {
+  const r = await fetch('questions-curated.json');
+  const d = await r.json();
+  QUESTIONS = d.questions.map(q => ({...q, rag: questionRag(q)}));
+  render();
+}
+
+function render() {
+  const fs = document.getElementById('f-subject').value;
+  const fr = document.getElementById('f-rag').value;
+  const fy = document.getElementById('f-year').value;
+  const fm = document.getElementById('f-marks').value;
+  const ft = document.getElementById('f-text').value.trim().toLowerCase();
+
+  let filtered = QUESTIONS.filter(q => {
+    if (fs !== 'all' && q.subject !== fs) return false;
+    if (fy !== 'all' && q.year !== fy) return false;
+    if (fm === '9-10' && !(q.marks === 9 || q.marks === 10)) return false;
+    if (fm === '15' && q.marks !== 15) return false;
+    if (fm === '25' && q.marks !== 25) return false;
+    if (fr === 'R' && q.rag !== 'R') return false;
+    if (fr === 'A' && q.rag !== 'A') return false;
+    if (fr === 'RA' && q.rag === 'G') return false;
+    if (ft && !q.text.toLowerCase().includes(ft) && !q.codes.join(' ').toLowerCase().includes(ft)) return false;
+    return true;
+  });
+
+  // Sort: Red first, then Amber, then Green; within each by marks descending
+  const rank = { R: 0, A: 1, G: 2 };
+  filtered.sort((a, b) => {
+    if (rank[a.rag] !== rank[b.rag]) return rank[a.rag] - rank[b.rag];
+    if (a.marks !== b.marks) return b.marks - a.marks;
+    return a.year.localeCompare(b.year);
+  });
+
+  const stats = document.getElementById('stats');
+  const reds = filtered.filter(q => q.rag === 'R').length;
+  const ambers = filtered.filter(q => q.rag === 'A').length;
+  const greens = filtered.filter(q => q.rag === 'G').length;
+  stats.innerHTML = `
+    <div class="stat-item"><strong>${filtered.length}</strong> question${filtered.length === 1 ? '' : 's'} shown</div>
+    ${reds > 0 ? `<div class="stat-item"><span class="rag-tag R">Red</span> ${reds}</div>` : ''}
+    ${ambers > 0 ? `<div class="stat-item"><span class="rag-tag A">Amber</span> ${ambers}</div>` : ''}
+    ${greens > 0 ? `<div class="stat-item"><span class="rag-tag G">Green</span> ${greens}</div>` : ''}
+  `;
+
+  const list = document.getElementById('questions-list');
+  if (filtered.length === 0) {
+    list.innerHTML = '<div class="empty">No questions match these filters.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(q => {
+    const ragClass = {R: 'red-match', A: 'amber-match', G: 'green-match'}[q.rag];
+    const subjLabel = q.subject === 'econ' ? 'Economics' : 'Politics';
+    const paperName = q.paper === 'p1' ? 'Paper 1' : q.paper === 'p2' ? 'Paper 2' : 'Paper 3';
+    return `
+      <div class="question-card ${ragClass}">
+        <div class="question-meta">
+          <span class="marks-badge">${q.marks} marks</span>
+          <span class="rag-tag ${q.rag}">${q.rag === 'R' ? 'Red' : q.rag === 'A' ? 'Amber' : 'Green'}</span>
+          <span>${subjLabel} · ${paperName} · June ${q.year}</span>
+        </div>
+        <div class="question-text">${q.text}</div>
+        <div class="spec-codes">Tagged: ${q.codes.map(c => `<span class="code">${c}</span>`).join('')}</div>
+        <div class="actions">
+          <a href="${q.pdf}" class="qp" target="_blank">Open QP</a>
+          <a href="${q.ms}" class="ms" target="_blank">Mark scheme</a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+['f-subject', 'f-rag', 'f-year', 'f-marks'].forEach(id => {
+  document.getElementById(id).addEventListener('change', render);
+});
+document.getElementById('f-text').addEventListener('input', render);
+
+loadQuestions();
+</script>
+
+</body>
+</html>

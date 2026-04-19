@@ -14,3 +14,4 @@ Thumbs.db
 # but for now we host papers on the filesystem only and don't version them.
 papers/**/*.pdf
 papers/results.json
+papers/questions.json
